@@ -1,0 +1,2092 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>踩踏 - 官方视频门户 | 城市节奏影像社区</title>
+<meta name="description" content="踩踏官方网站，专注城市骑行与街头节奏的原创视频影像社区，汇聚创作者、记录城市探索与在地文化，打造值得信赖的高清内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='20' cy='44' r='12' fill='none' stroke='%23e4572e' stroke-width='4'/%3E%3Ccircle cx='44' cy='44' r='12' fill='none' stroke='%231f2a44' stroke-width='4'/%3E%3Cpath d='M20 44 L32 20 L44 44' fill='none' stroke='%231f2a44' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ct-bg:#f4f6f8;
+  --ct-surface:#ffffff;
+  --ct-ink:#16202f;
+  --ct-ink-soft:#4a5768;
+  --ct-line:#dde3ea;
+  --ct-accent:#e4572e;
+  --ct-accent-soft:#fde9e2;
+  --ct-blue:#1f2a44;
+  --ct-blue-soft:#e6ecf6;
+  --ct-green:#2f8f6b;
+  --ct-radius:16px;
+  --ct-shadow:0 10px 30px rgba(22,32,47,.08);
+  --ct-shadow-hover:0 18px 44px rgba(22,32,47,.16);
+  --ct-head-h:104px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ct-head-h) + 12px);}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--ct-bg);
+  color:var(--ct-ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+ul,ol{list-style:none;}
+.ct-wrap{max-width:1180px;margin:0 auto;padding:0 22px;}
+.ct-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* ===== 公告条 + 页头（吸顶） ===== */
+.ct-topstack{position:sticky;top:0;z-index:80;}
+.ct-announce{
+  background:linear-gradient(90deg,#1f2a44 0%,#2c3d63 55%,#e4572e 100%);
+  color:#fff;font-size:13.5px;
+}
+.ct-announce-inner{
+  max-width:1180px;margin:0 auto;padding:8px 22px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.ct-announce-tag{
+  background:var(--ct-accent);color:#fff;font-weight:700;
+  font-size:12px;padding:2px 9px;border-radius:20px;letter-spacing:.5px;flex:none;
+}
+.ct-announce-list{display:flex;gap:22px;flex-wrap:wrap;overflow:hidden;}
+.ct-announce-list li{white-space:nowrap;opacity:.94;}
+.ct-announce-list li strong{color:#ffd9cc;font-weight:600;}
+.ct-announce-close{
+  margin-left:auto;color:#fff;opacity:.8;font-size:16px;line-height:1;
+  padding:2px 6px;border-radius:6px;flex:none;
+}
+.ct-announce-close:hover{opacity:1;background:rgba(255,255,255,.16);}
+.ct-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--ct-line);
+  box-shadow:0 4px 18px rgba(22,32,47,.05);
+}
+.ct-header-inner{
+  max-width:1180px;margin:0 auto;padding:12px 22px;
+  display:flex;align-items:center;gap:22px;
+}
+.ct-logo{display:flex;align-items:center;gap:10px;flex:none;}
+.ct-logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:var(--ct-blue);position:relative;flex:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.ct-logo-mark svg{width:26px;height:26px;}
+.ct-logo-text{display:flex;flex-direction:column;line-height:1.15;}
+.ct-logo-text b{font-size:19px;letter-spacing:2px;}
+.ct-logo-text span{font-size:11px;color:var(--ct-ink-soft);letter-spacing:1.5px;}
+.ct-nav{display:flex;gap:4px;margin-left:6px;flex-wrap:wrap;}
+.ct-nav a{
+  font-size:14.5px;color:var(--ct-ink-soft);padding:7px 12px;border-radius:9px;
+  transition:.22s;font-weight:500;
+}
+.ct-nav a:hover{background:var(--ct-blue-soft);color:var(--ct-blue);}
+.ct-head-tools{display:flex;align-items:center;gap:10px;margin-left:auto;}
+.ct-search{position:relative;display:flex;align-items:center;}
+.ct-search input{
+  width:210px;padding:9px 36px 9px 14px;border-radius:10px;
+  border:1px solid var(--ct-line);background:var(--ct-bg);
+  font-size:14px;color:var(--ct-ink);outline:none;transition:.22s;
+}
+.ct-search input:focus{border-color:var(--ct-accent);background:#fff;box-shadow:0 0 0 3px var(--ct-accent-soft);width:240px;}
+.ct-search button{
+  position:absolute;right:6px;width:28px;height:28px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;color:var(--ct-ink-soft);
+}
+.ct-search button:hover{background:var(--ct-accent-soft);color:var(--ct-accent);}
+.ct-search-msg{
+  position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;
+  border:1px solid var(--ct-line);border-radius:10px;box-shadow:var(--ct-shadow);
+  padding:10px 14px;font-size:13px;color:var(--ct-ink-soft);display:none;z-index:90;
+}
+.ct-search-msg.is-on{display:block;}
+.ct-search-msg b{color:var(--ct-accent);}
+.ct-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:9px 18px;border-radius:10px;font-size:14.5px;font-weight:600;
+  transition:.22s;white-space:nowrap;
+}
+.ct-btn-primary{background:var(--ct-accent);color:#fff;}
+.ct-btn-primary:hover{background:#c9441f;transform:translateY(-1px);box-shadow:0 8px 20px rgba(228,87,46,.3);}
+.ct-btn-ghost{background:#fff;border:1px solid var(--ct-line);color:var(--ct-ink);}
+.ct-btn-ghost:hover{border-color:var(--ct-accent);color:var(--ct-accent);}
+.ct-btn-blue{background:var(--ct-blue);color:#fff;}
+.ct-btn-blue:hover{background:#16203a;transform:translateY(-1px);}
+.ct-navtoggle{display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--ct-line);background:#fff;align-items:center;justify-content:center;}
+.ct-navtoggle span{display:block;width:18px;height:2px;background:var(--ct-ink);position:relative;}
+.ct-navtoggle span::before,.ct-navtoggle span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ct-ink);}
+.ct-navtoggle span::before{top:-6px;}
+.ct-navtoggle span::after{top:6px;}
+
+/* ===== 双列短评布局变量 & 通用 ===== */
+.ct-section{padding:64px 0;}
+.ct-section-alt{background:#fff;}
+.ct-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  letter-spacing:2px;color:var(--ct-accent);text-transform:uppercase;margin-bottom:12px;
+}
+.ct-eyebrow::before{content:"";width:26px;height:2px;background:var(--ct-accent);border-radius:2px;}
+.ct-h2{
+  font-size:clamp(24px,3vw,34px);line-height:1.3;font-weight:800;letter-spacing:.5px;
+  margin-bottom:12px;
+}
+.ct-h2 em{font-style:normal;color:var(--ct-accent);}
+.ct-h3{font-size:19px;font-weight:700;line-height:1.45;margin-bottom:8px;}
+.ct-lead{color:var(--ct-ink-soft);font-size:15.5px;max-width:820px;}
+.ct-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:34px;}
+
+/* ===== 首屏 ===== */
+.ct-hero{padding:42px 0 56px;position:relative;overflow:hidden;}
+.ct-hero::after{
+  content:"";position:absolute;right:-160px;top:-120px;width:520px;height:520px;
+  border-radius:50%;background:radial-gradient(circle,rgba(228,87,46,.13),transparent 68%);
+  z-index:0;pointer-events:none;
+}
+.ct-hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:46px;align-items:center;position:relative;z-index:1;
+}
+.ct-hero-badge{
+  display:inline-flex;align-items:center;gap:9px;background:var(--ct-blue-soft);
+  color:var(--ct-blue);font-size:13px;font-weight:600;padding:6px 14px;border-radius:30px;margin-bottom:18px;
+}
+.ct-hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--ct-green);display:inline-block;box-shadow:0 0 0 4px rgba(47,143,107,.18);}
+.ct-hero h1{
+  font-size:clamp(46px,7.4vw,88px);line-height:1.02;font-weight:900;
+  letter-spacing:2px;margin-bottom:18px;
+  background:linear-gradient(120deg,#16202f 30%,#2c3d63 60%,#e4572e 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.ct-hero-slogan{font-size:clamp(18px,2.2vw,23px);font-weight:700;color:var(--ct-blue);margin-bottom:16px;letter-spacing:.5px;}
+.ct-hero-desc{color:var(--ct-ink-soft);font-size:15.5px;line-height:1.9;margin-bottom:26px;max-width:560px;}
+.ct-hero-desc b{color:var(--ct-ink);font-weight:700;}
+.ct-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
+.ct-hero-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;padding-top:24px;border-top:1px dashed var(--ct-line);
+}
+.ct-stat b{font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--ct-blue);display:block;line-height:1.2;letter-spacing:.5px;}
+.ct-stat b span{font-size:14px;color:var(--ct-accent);margin-left:2px;font-weight:700;}
+.ct-stat em{font-style:normal;font-size:12.5px;color:var(--ct-ink-soft);letter-spacing:.5px;}
+.ct-hero-visual{position:relative;}
+.ct-hero-figure{
+  border-radius:22px;overflow:hidden;box-shadow:var(--ct-shadow-hover);
+  background:var(--ct-blue);position:relative;aspect-ratio:4/4.4;
+}
+.ct-hero-figure svg{width:100%;height:100%;display:block;}
+.ct-hero-float{
+  position:absolute;left:-18px;bottom:26px;background:#fff;border-radius:14px;
+  padding:13px 18px;box-shadow:var(--ct-shadow);border:1px solid var(--ct-line);
+  display:flex;align-items:center;gap:12px;max-width:270px;
+}
+.ct-hero-float .ct-play-dot{
+  width:40px;height:40px;border-radius:50%;background:var(--ct-accent);flex:none;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.ct-hero-float .ct-play-dot svg{width:15px;height:15px;}
+.ct-hero-float b{font-size:14px;display:block;line-height:1.4;}
+.ct-hero-float small{font-size:12px;color:var(--ct-ink-soft);}
+
+/* ===== 焦点内容（1大+文字列表） ===== */
+.ct-focus-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start;}
+.ct-focus-main{
+  background:#fff;border-radius:var(--ct-radius);overflow:hidden;
+  border:1px solid var(--ct-line);box-shadow:var(--ct-shadow);transition:.28s;
+}
+.ct-focus-main:hover{box-shadow:var(--ct-shadow-hover);transform:translateY(-3px);}
+.ct-focus-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ct-blue-soft);}
+.ct-focus-cover svg{width:100%;height:100%;display:block;}
+.ct-focus-cover .ct-cover-tag{
+  position:absolute;top:14px;left:14px;background:rgba(22,32,47,.78);color:#fff;
+  font-size:12px;padding:4px 11px;border-radius:20px;backdrop-filter:blur(4px);
+}
+.ct-focus-cover .ct-cover-play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,transparent 40%,rgba(22,32,47,.42));
+}
+.ct-cover-play i{
+  width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.94);
+  display:flex;align-items:center;justify-content:center;color:var(--ct-accent);
+  transition:.25s;box-shadow:0 6px 22px rgba(0,0,0,.2);
+}
+.ct-focus-main:hover .ct-cover-play i{transform:scale(1.09);background:var(--ct-accent);color:#fff;}
+.ct-cover-play svg{width:20px;height:20px;}
+.ct-focus-body{padding:20px 22px 22px;}
+.ct-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.ct-tag{
+  font-size:12px;padding:3px 10px;border-radius:20px;background:var(--ct-accent-soft);
+  color:var(--ct-accent);font-weight:600;
+}
+.ct-tag-blue{background:var(--ct-blue-soft);color:var(--ct-blue);}
+.ct-tag-green{background:#e2f4ec;color:var(--ct-green);}
+.ct-focus-body h3{font-size:22px;font-weight:800;line-height:1.4;margin-bottom:10px;}
+.ct-focus-body p{color:var(--ct-ink-soft);font-size:14.5px;margin-bottom:16px;}
+.ct-meta{display:flex;align-items:center;gap:14px;font-size:12.5px;color:var(--ct-ink-soft);flex-wrap:wrap;}
+.ct-meta-author{display:flex;align-items:center;gap:7px;font-weight:600;color:var(--ct-ink);}
+.ct-avatar{
+  width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;flex:none;
+}
+.ct-actions{display:flex;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid var(--ct-line);flex-wrap:wrap;}
+.ct-act-btn{
+  display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ct-ink-soft);
+  padding:6px 12px;border-radius:9px;background:var(--ct-bg);transition:.2s;
+}
+.ct-act-btn:hover{background:var(--ct-blue-soft);color:var(--ct-blue);}
+.ct-act-btn.is-liked{background:var(--ct-accent-soft);color:var(--ct-accent);font-weight:600;}
+.ct-act-btn.is-saved{background:#e2f4ec;color:var(--ct-green);font-weight:600;}
+.ct-act-btn svg{width:15px;height:15px;}
+
+.ct-focus-list{display:flex;flex-direction:column;gap:2px;}
+.ct-focus-item{
+  display:flex;gap:14px;padding:16px 4px;border-bottom:1px dashed var(--ct-line);
+  transition:.22s;border-radius:10px;
+}
+.ct-focus-item:last-child{border-bottom:none;}
+.ct-focus-item:hover{background:#fff;box-shadow:var(--ct-shadow);transform:translateX(4px);padding-left:12px;padding-right:12px;}
+.ct-focus-item .ct-idx{
+  font-size:20px;font-weight:900;color:var(--ct-line);flex:none;width:34px;line-height:1.4;
+  font-family:Georgia,serif;
+}
+.ct-focus-item:hover .ct-idx{color:var(--ct-accent);}
+.ct-focus-item h4{font-size:15.5px;font-weight:700;line-height:1.5;margin-bottom:5px;}
+.ct-focus-item p{font-size:13px;color:var(--ct-ink-soft);margin-bottom:7px;}
+.ct-focus-item .ct-mi-meta{font-size:12px;color:var(--ct-ink-soft);display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ===== 品牌故事 / 图文索引 ===== */
+.ct-story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px;align-items:start;}
+.ct-story-visual{border-radius:var(--ct-radius);overflow:hidden;box-shadow:var(--ct-shadow);aspect-ratio:5/4;background:var(--ct-blue-soft);}
+.ct-story-visual svg{width:100%;height:100%;display:block;}
+.ct-story-cap{font-size:12.5px;color:var(--ct-ink-soft);margin-top:10px;display:flex;gap:8px;align-items:center;}
+.ct-story-cap::before{content:"";width:14px;height:2px;background:var(--ct-accent);}
+.ct-prose h3{margin-top:22px;}
+.ct-prose p{color:var(--ct-ink-soft);font-size:15px;margin-bottom:12px;}
+.ct-prose p strong{color:var(--ct-ink);}
+.ct-index-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.ct-index-item{
+  display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--ct-line);
+  border-radius:12px;padding:12px 16px;transition:.22s;
+}
+.ct-index-item:hover{border-color:var(--ct-accent);box-shadow:var(--ct-shadow);}
+.ct-index-item .ct-idx-num{
+  width:30px;height:30px;border-radius:9px;background:var(--ct-blue-soft);color:var(--ct-blue);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex:none;
+}
+.ct-index-item h4{font-size:14.5px;font-weight:700;line-height:1.45;}
+.ct-index-item small{font-size:12px;color:var(--ct-ink-soft);}
+.ct-index-item .ct-idx-more{margin-left:auto;font-size:12px;color:var(--ct-accent);font-weight:600;flex:none;}
+
+/* ===== 视频流（单列图文列表） ===== */
+.ct-stream{display:flex;flex-direction:column;gap:18px;}
+.ct-vcard{
+  display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;
+  background:#fff;border:1px solid var(--ct-line);border-radius:var(--ct-radius);
+  overflow:hidden;transition:.26s;
+}
+.ct-vcard:hover{box-shadow:var(--ct-shadow-hover);transform:translateY(-2px);border-color:#cfd8e3;}
+.ct-vthumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ct-blue-soft);}
+.ct-vthumb svg{width:100%;height:100%;display:block;}
+.ct-vthumb .ct-dur{
+  position:absolute;right:9px;bottom:9px;background:rgba(22,32,47,.8);color:#fff;
+  font-size:11.5px;padding:2px 7px;border-radius:5px;
+}
+.ct-vthumb .ct-vplay{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:.26s;
+  background:rgba(22,32,47,.3);
+}
+.ct-vcard:hover .ct-vplay{opacity:1;}
+.ct-vplay i{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ct-accent);display:flex;align-items:center;justify-content:center;}
+.ct-vplay svg{width:16px;height:16px;}
+.ct-vbody{padding:20px 22px 20px 0;display:flex;flex-direction:column;}
+.ct-vbody h3{font-size:18px;font-weight:700;line-height:1.45;margin:8px 0 8px;}
+.ct-vbody p{font-size:14px;color:var(--ct-ink-soft);margin-bottom:12px;}
+.ct-vbody .ct-meta{margin-top:auto;}
+.ct-vbody .ct-actions{margin-top:12px;padding-top:12px;}
+
+/* ===== 关键词解析（深度长文） ===== */
+.ct-deep{background:linear-gradient(180deg,#f7f9fb,#eef2f6);}
+.ct-deep-head{max-width:900px;margin-bottom:32px;}
+.ct-deep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;}
+.ct-deep-card{
+  background:#fff;border-radius:var(--ct-radius);padding:24px 26px;border:1px solid var(--ct-line);
+  box-shadow:0 4px 16px rgba(22,32,47,.04);
+}
+.ct-deep-card h3{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.ct-deep-card h3 .ct-dnum{
+  width:28px;height:28px;border-radius:8px;background:var(--ct-accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none;
+}
+.ct-deep-card p{font-size:14.5px;color:var(--ct-ink-soft);margin-bottom:10px;}
+.ct-deep-card p strong{color:var(--ct-ink);}
+.ct-deep-full{grid-column:1/-1;}
+
+/* ===== 创作者矩阵（双列简介） ===== */
+.ct-authors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.ct-author-card{
+  background:#fff;border:1px solid var(--ct-line);border-radius:var(--ct-radius);
+  padding:22px 24px;display:flex;gap:18px;transition:.26s;
+}
+.ct-author-card:hover{box-shadow:var(--ct-shadow-hover);transform:translateY(-2px);border-color:#cfd8e3;}
+.ct-author-av{
+  width:58px;height:58px;border-radius:18px;flex:none;display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:800;color:#fff;
+}
+.ct-author-info{min-width:0;}
+.ct-author-info h3{font-size:17px;font-weight:800;margin-bottom:3px;}
+.ct-author-field{font-size:12.5px;color:var(--ct-accent);font-weight:600;margin-bottom:8px;}
+.ct-author-bio{font-size:13.5px;color:var(--ct-ink-soft);line-height:1.7;margin-bottom:11px;}
+.ct-author-nums{display:flex;gap:16px;font-size:12.5px;color:var(--ct-ink-soft);margin-bottom:12px;}
+.ct-author-nums b{color:var(--ct-ink);font-weight:700;}
+.ct-author-links{display:flex;gap:8px;}
+.ct-mini-btn{
+  font-size:12.5px;padding:5px 12px;border-radius:8px;border:1px solid var(--ct-line);
+  color:var(--ct-ink-soft);transition:.2s;background:#fff;
+}
+.ct-mini-btn:hover{border-color:var(--ct-accent);color:var(--ct-accent);}
+
+/* ===== 评价（双列短评） ===== */
+.ct-comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+.ct-comment{
+  background:#fff;border:1px solid var(--ct-line);border-radius:14px;padding:18px 20px;
+  display:flex;flex-direction:column;gap:10px;transition:.24s;
+}
+.ct-comment:hover{box-shadow:var(--ct-shadow);transform:translateY(-2px);}
+.ct-comment-top{display:flex;align-items:center;gap:10px;}
+.ct-comment-who b{font-size:14px;font-weight:700;display:block;line-height:1.3;}
+.ct-comment-who small{font-size:11.5px;color:var(--ct-ink-soft);}
+.ct-stars{margin-left:auto;color:var(--ct-accent);font-size:12.5px;letter-spacing:1px;flex:none;}
+.ct-comment p{font-size:14px;color:var(--ct-ink-soft);line-height:1.75;}
+.ct-comment p em{font-style:normal;color:var(--ct-ink);font-weight:600;}
+
+/* ===== 数据榜单 ===== */
+.ct-rank-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.ct-rank-col{background:#fff;border:1px solid var(--ct-line);border-radius:var(--ct-radius);overflow:hidden;}
+.ct-rank-head{
+  padding:14px 18px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--ct-line);background:var(--ct-blue-soft);
+}
+.ct-rank-head h3{font-size:15px;font-weight:800;color:var(--ct-blue);}
+.ct-rank-head span{font-size:11.5px;color:var(--ct-ink-soft);}
+.ct-rank-list{display:flex;flex-direction:column;}
+.ct-rank-item{display:flex;gap:12px;padding:12px 16px;border-bottom:1px dashed var(--ct-line);align-items:center;}
+.ct-rank-item:last-child{border-bottom:none;}
+.ct-rank-item .ct-rn{font-size:14px;font-weight:900;color:var(--ct-line);width:20px;font-family:Georgia,serif;}
+.ct-rank-item:nth-child(1) .ct-rn{color:var(--ct-accent);}
+.ct-rank-item:nth-child(2) .ct-rn{color:#c98a2f;}
+.ct-rank-item:nth-child(3) .ct-rn{color:var(--ct-green);}
+.ct-rank-item .ct-rt{font-size:13.5px;font-weight:600;line-height:1.45;min-width:0;}
+.ct-rank-item .ct-rt small{display:block;font-weight:400;color:var(--ct-ink-soft);font-size:11.5px;margin-top:2px;}
+.ct-rank-item .ct-rv{margin-left:auto;font-size:12px;color:var(--ct-accent);font-weight:600;flex:none;}
+
+/* ===== 专题企划 ===== */
+.ct-specials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.ct-special{
+  background:#fff;border:1px solid var(--ct-line);border-radius:var(--ct-radius);
+  padding:22px 22px 20px;transition:.26s;display:flex;flex-direction:column;
+}
+.ct-special:hover{box-shadow:var(--ct-shadow-hover);transform:translateY(-3px);}
+.ct-special-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:10px;}
+.ct-special-status{
+  font-size:11.5px;padding:3px 10px;border-radius:20px;font-weight:700;flex:none;
+  background:#e2f4ec;color:var(--ct-green);
+}
+.ct-special-status.ct-soon{background:var(--ct-accent-soft);color:var(--ct-accent);}
+.ct-special h3{font-size:18px;font-weight:800;margin-bottom:8px;line-height:1.4;}
+.ct-special > p{font-size:13.5px;color:var(--ct-ink-soft);margin-bottom:14px;}
+.ct-special-list{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.ct-special-list li{
+  font-size:13px;color:var(--ct-ink-soft);padding-left:16px;position:relative;line-height:1.6;
+}
+.ct-special-list li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--ct-accent);}
+.ct-special-link{font-size:13px;font-weight:700;color:var(--ct-accent);margin-top:auto;}
+
+/* ===== 辅助区：动态 + 合作 + FAQ ===== */
+.ct-assist-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px;align-items:start;}
+.ct-news-list{display:flex;flex-direction:column;gap:0;}
+.ct-news-item{
+  display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ct-line);align-items:flex-start;
+}
+.ct-news-item:last-child{border-bottom:none;}
+.ct-news-date{
+  flex:none;text-align:center;background:var(--ct-blue-soft);border-radius:10px;padding:7px 10px;
+  min-width:60px;
+}
+.ct-news-date b{display:block;font-size:17px;font-weight:800;color:var(--ct-blue);line-height:1.1;}
+.ct-news-date small{font-size:11px;color:var(--ct-ink-soft);}
+.ct-news-item h4{font-size:14.5px;font-weight:700;margin-bottom:4px;line-height:1.5;}
+.ct-news-item p{font-size:13px;color:var(--ct-ink-soft);}
+.ct-partners{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:6px;}
+.ct-partner{
+  background:#fff;border:1px solid var(--ct-line);border-radius:12px;padding:14px 16px;
+  display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;transition:.22s;
+}
+.ct-partner:hover{border-color:var(--ct-accent);color:var(--ct-accent);}
+.ct-partner i{
+  width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#fff;font-size:13px;flex:none;
+}
+.ct-faq{margin-top:34px;}
+.ct-faq details{
+  background:#fff;border:1px solid var(--ct-line);border-radius:12px;margin-bottom:10px;
+  overflow:hidden;transition:.2s;
+}
+.ct-faq details[open]{border-color:var(--ct-accent);box-shadow:var(--ct-shadow);}
+.ct-faq summary{
+  padding:15px 20px;font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.ct-faq summary::-webkit-details-marker{display:none;}
+.ct-faq summary::after{content:"+";font-size:20px;color:var(--ct-accent);font-weight:400;line-height:1;flex:none;}
+.ct-faq details[open] summary::after{content:"−";}
+.ct-faq details p{padding:0 20px 16px;font-size:13.5px;color:var(--ct-ink-soft);line-height:1.8;}
+
+/* ===== 投稿 CTA ===== */
+.ct-cta{
+  background:linear-gradient(118deg,#1f2a44,#2c3d63 55%,#e4572e);
+  border-radius:22px;padding:44px 46px;color:#fff;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
+}
+.ct-cta::after{
+  content:"";position:absolute;right:-80px;bottom:-120px;width:320px;height:320px;border-radius:50%;
+  background:rgba(255,255,255,.08);pointer-events:none;
+}
+.ct-cta h2{font-size:clamp(22px,3vw,30px);font-weight:800;margin-bottom:10px;letter-spacing:.5px;}
+.ct-cta p{font-size:14.5px;opacity:.85;max-width:560px;}
+.ct-cta-actions{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1;}
+.ct-cta .ct-btn-primary{background:#fff;color:var(--ct-accent);}
+.ct-cta .ct-btn-primary:hover{background:#ffe9e1;}
+.ct-cta .ct-btn-ghost{background:transparent;border-color:rgba(255,255,255,.5);color:#fff;}
+.ct-cta .ct-btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff;color:#fff;}
+
+/* ===== 页脚 ===== */
+.ct-footer{background:var(--ct-blue);color:#c9d3e2;padding:56px 0 0;margin-top:64px;}
+.ct-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.12);}
+.ct-footer-brand .ct-logo-text b{color:#fff;}
+.ct-footer-brand .ct-logo-text span{color:#8fa0ba;}
+.ct-footer-brand p{font-size:13.5px;line-height:1.85;margin-top:14px;color:#a7b5ca;max-width:320px;}
+.ct-footer h4{font-size:14px;color:#fff;font-weight:700;margin-bottom:14px;letter-spacing:.5px;}
+.ct-footer ul{display:flex;flex-direction:column;gap:9px;}
+.ct-footer ul a{font-size:13px;color:#a7b5ca;transition:.2s;}
+.ct-footer ul a:hover{color:#fff;}
+.ct-footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  padding:22px 0;font-size:12.5px;color:#8fa0ba;
+}
+.ct-footer-bottom a{color:#8fa0ba;}
+.ct-footer-bottom a:hover{color:#fff;}
+.ct-footer-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.ct-footer-badges span{
+  font-size:11.5px;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.18);
+}
+
+/* ===== 回到顶部 ===== */
+.ct-totop{
+  position:fixed;right:24px;bottom:28px;width:46px;height:46px;border-radius:50%;
+  background:var(--ct-blue);color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(22,32,47,.28);opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:.28s;z-index:70;
+}
+.ct-totop.is-on{opacity:1;visibility:visible;transform:translateY(0);}
+.ct-totop:hover{background:var(--ct-accent);}
+.ct-totop svg{width:18px;height:18px;}
+
+/* ===== 弹层 & Toast ===== */
+.ct-modal-mask{
+  position:fixed;inset:0;background:rgba(16,24,36,.55);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;z-index:120;padding:22px;
+}
+.ct-modal-mask.is-on{display:flex;}
+.ct-modal{
+  background:#fff;border-radius:18px;max-width:520px;width:100%;padding:26px 28px;
+  box-shadow:0 30px 70px rgba(0,0,0,.3);max-height:86vh;overflow:auto;
+  animation:ctPop .24s ease;
+}
+@keyframes ctPop{from{opacity:0;transform:translateY(16px) scale(.98);}to{opacity:1;transform:none;}}
+.ct-modal h3{font-size:19px;font-weight:800;margin-bottom:6px;}
+.ct-modal .ct-modal-sub{font-size:13.5px;color:var(--ct-ink-soft);margin-bottom:16px;}
+.ct-modal label{font-size:13px;font-weight:600;display:block;margin-bottom:5px;}
+.ct-modal input,.ct-modal textarea,.ct-modal select{
+  width:100%;padding:10px 13px;border-radius:10px;border:1px solid var(--ct-line);
+  font-family:inherit;font-size:14px;margin-bottom:14px;outline:none;background:var(--ct-bg);
+  color:var(--ct-ink);
+}
+.ct-modal input:focus,.ct-modal textarea:focus,.ct-modal select:focus{border-color:var(--ct-accent);background:#fff;box-shadow:0 0 0 3px var(--ct-accent-soft);}
+.ct-modal textarea{resize:vertical;min-height:88px;}
+.ct-modal-foot{display:flex;gap:10px;justify-content:flex-end;margin-top:6px;flex-wrap:wrap;}
+.ct-modal-close{
+  position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;color:var(--ct-ink-soft);font-size:20px;
+}
+.ct-modal-close:hover{background:var(--ct-bg);color:var(--ct-accent);}
+.ct-modal-wrap{position:relative;background:#fff;border-radius:18px;max-width:520px;width:100%;}
+.ct-modal-wrap .ct-modal{box-shadow:none;max-width:none;}
+
+.ct-toast{
+  position:fixed;left:50%;bottom:38px;transform:translate(-50%,20px);
+  background:var(--ct-ink);color:#fff;font-size:14px;padding:11px 22px;border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,.28);opacity:0;visibility:hidden;transition:.26s;z-index:200;
+  max-width:88vw;text-align:center;
+}
+.ct-toast.is-on{opacity:1;visibility:visible;transform:translate(-50%,0);}
+
+/* ===== 响应式 ===== */
+@media(max-width:1040px){
+  .ct-hero-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .ct-footnote-grid{grid-template-columns:1fr 1fr;}
+  .ct-footer-grid{grid-template-columns:1.4fr 1fr 1fr;}
+  .ct-focus-grid{grid-template-columns:1fr;}
+  .ct-story-grid{grid-template-columns:1fr;}
+  .ct-assist-grid{grid-template-columns:1fr;}
+  .ct-rank-grid{grid-template-columns:1fr 1fr;}
+  .ct-specials{grid-template-columns:1fr 1fr;}
+  .ct-authors{grid-template-columns:1fr;}
+  .ct-comments{grid-template-columns:1fr;}
+}
+@media(max-width:860px){
+  :root{--ct-head-h:120px;}
+  .ct-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:#fff;flex-direction:column;padding:10px 16px 16px;
+    border-bottom:1px solid var(--ct-line);box-shadow:0 18px 30px rgba(22,32,47,.12);
+    gap:2px;
+  }
+  .ct-nav.is-open{display:flex;}
+  .ct-nav a{padding:11px 12px;}
+  .ct-navtoggle{display:flex;}
+  .ct-header-inner{position:relative;gap:14px;flex-wrap:wrap;}
+  .ct-head-tools{margin-left:auto;}
+  .ct-search input{width:150px;}
+  .ct-search input:focus{width:170px;}
+  .ct-hero-grid{grid-template-columns:1fr;}
+  .ct-hero-visual{order:-1;}
+  .ct-hero-figure{aspect-ratio:16/11;}
+  .ct-hero-float{left:auto;right:12px;bottom:12px;}
+  .ct-vcard{grid-template-columns:1fr;}
+  .ct-vbody{padding:16px 18px;}
+  .ct-deep-grid{grid-template-columns:1fr;}
+  .ct-rank-grid{grid-template-columns:1fr;}
+  .ct-specials{grid-template-columns:1fr;}
+  .ct-cta{padding:32px 26px;}
+  .ct-footer-grid{grid-template-columns:1fr 1fr;}
+  .ct-announce-list{gap:14px;}
+}
+@media(max-width:560px){
+  .ct-section{padding:44px 0;}
+  .ct-hero{padding:26px 0 40px;}
+  .ct-hero h1{font-size:clamp(40px,13vw,58px);}
+  .ct-hero-stats{grid-template-columns:1fr 1fr 1fr;gap:8px;}
+  .ct-stat b{font-size:20px;}
+  .ct-authors{grid-template-columns:1fr;}
+  .ct-partners{grid-template-columns:1fr;}
+  .ct-footer-grid{grid-template-columns:1fr;}
+  .ct-hero-actions .ct-btn{flex:1 1 auto;}
+  .ct-focus-body h3{font-size:19px;}
+  .ct-search input{width:120px;}
+  .ct-search input:focus{width:140px;}
+  .ct-cta-actions .ct-btn{flex:1 1 auto;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ============ 吸顶：公告条 + 页头 ============ -->
+<div class="ct-topstack">
+  <div class="ct-announce" id="ctAnnounce">
+    <div class="ct-announce-inner">
+      <span class="ct-announce-tag">官方发布</span>
+      <ul class="ct-announce-list">
+        <li><strong>11·22</strong>「城市踩踏 2026」冬季企划开播，首更 6 集城市夜骑影像</li>
+        <li><strong>11·20</strong> 创作者激励计划第三期报名开启，支持 4K 高清原创投稿</li>
+        <li><strong>11·18</strong> 新版「踩踏」播放器上线，支持 60 帧慢放与路书同屏</li>
+      </ul>
+      <button class="ct-announce-close" id="ctAnnounceClose" aria-label="收起公告">×</button>
+    </div>
+  </div>
+
+  <header class="ct-header">
+    <div class="ct-header-inner">
+      <a href="#ctTop" class="ct-logo" aria-label="踩踏官网首页">
+        <span class="ct-logo-mark">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="18" cy="46" r="11" fill="none" stroke="#f4f6f8" stroke-width="3.5"/>
+            <circle cx="46" cy="46" r="11" fill="none" stroke="#f4f6f8" stroke-width="3.5"/>
+            <path d="M18 46 L33 20 L46 46" fill="none" stroke="#e4572e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="ct-logo-text">
+          <b>踩踏</b>
+          <span>CAITA · 官方视频门户</span>
+        </span>
+      </a>
+
+      <nav class="ct-nav" id="ctNav" aria-label="主导航">
+        <a href="#ctFocus">焦点内容</a>
+        <a href="#ctStory">品牌故事</a>
+        <a href="#ctStream">影像流</a>
+        <a href="#ctDeep">深度解析</a>
+        <a href="#ctAuthors">创作者</a>
+        <a href="#ctRank">榜单</a>
+        <a href="#ctHelp">帮助</a>
+      </nav>
+
+      <div class="ct-head-tools">
+        <div class="ct-search">
+          <input type="text" id="ctSearchInput" placeholder="搜索影片、作者、路书…" aria-label="站内搜索">
+          <button id="ctSearchBtn" aria-label="搜索">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          </button>
+          <div class="ct-search-msg" id="ctSearchMsg"></div>
+        </div>
+        <button class="ct-btn ct-btn-primary" id="ctSubmitTop">投稿</button>
+        <button class="ct-navtoggle" id="ctNavToggle" aria-label="展开导航" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="ctTop">
+
+  <!-- ============ S2 品牌首屏 ============ -->
+  <section class="ct-hero">
+    <div class="ct-wrap">
+      <div class="ct-hero-grid">
+        <div class="ct-hero-copy">
+          <span class="ct-hero-badge"><i></i>踩踏 · 官方网站 · 持续运营中</span>
+          <h1>踩踏</h1>
+          <p class="ct-hero-slogan">用双脚丈量城市，用影像记录节奏</p>
+          <p class="ct-hero-desc">
+            作为深耕城市骑行与街头生活方式影像的<b>企业级视频品牌</b>，踩踏官方网站为创作者与企业搭建高品质内容生态。我们以原创、正版、高清为底线，聚合骑行路书、城市探索、创作幕后与人物访谈，让每一次出发都被认真记录，让同好社区在真实与温暖中持续成长。
+          </p>
+          <div class="ct-hero-actions">
+            <a href="#ctStream" class="ct-btn ct-btn-primary">
+              进入影像流
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#ctStory" class="ct-btn ct-btn-ghost">了解踩踏</a>
+            <button class="ct-btn ct-btn-blue" id="ctShareHero">分享官网</button>
+          </div>
+          <div class="ct-hero-stats">
+            <div class="ct-stat">
+              <b data-count="2860">0<span>+</span></b>
+              <em>原创影像作品</em>
+            </div>
+            <div class="ct-stat">
+              <b data-count="147">0<span>万</span></b>
+              <em>社区注册用户</em>
+            </div>
+            <div class="ct-stat">
+              <b data-count="32">0<span>座</span></b>
+              <em>已覆盖城市</em>
+            </div>
+          </div>
+        </div>
+
+        <div class="ct-hero-visual">
+          <figure class="ct-hero-figure">
+            <svg viewBox="0 0 480 528" role="img" aria-label="夜色中的城市骑行者穿行于高架桥下的主视觉插画">
+              <defs>
+                <linearGradient id="ctSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#16202f"/>
+                  <stop offset="0.55" stop-color="#1f2a44"/>
+                  <stop offset="1" stop-color="#2c3d63"/>
+                </linearGradient>
+                <linearGradient id="ctSun" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ffb07a"/>
+                  <stop offset="1" stop-color="#e4572e"/>
+                </linearGradient>
+                <linearGradient id="ctRoad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2c3d63"/>
+                  <stop offset="1" stop-color="#101827"/>
+                </linearGradient>
+              </defs>
+              <rect width="480" height="528" fill="url(#ctSky)"/>
+              <circle cx="352" cy="132" r="58" fill="url(#ctSun)" opacity="0.92"/>
+              <circle cx="352" cy="132" r="88" fill="none" stroke="#e4572e" stroke-width="1.6" opacity="0.3"/>
+              <g fill="#101827" opacity="0.9">
+                <rect x="20" y="150" width="54" height="230" rx="4"/>
+                <rect x="82" y="196" width="40" height="184" rx="4"/>
+                <rect x="130" y="126" width="66" height="254" rx="4"/>
+                <rect x="404" y="178" width="58" height="202" rx="4"/>
+              </g>
+              <g fill="#f6c98a" opacity="0.72">
+                <rect x="32" y="168" width="8" height="8"/><rect x="48" y="168" width="8" height="8"/>
+                <rect x="32" y="192" width="8" height="8"/><rect x="56" y="192" width="8" height="8"/>
+                <rect x="144" y="148" width="9" height="9"/><rect x="164" y="148" width="9" height="9"/>
+                <rect x="144" y="176" width="9" height="9"/><rect x="178" y="176" width="9" height="9"/>
+                <rect x="418" y="200" width="8" height="8"/><rect x="436" y="200" width="8" height="8"/>
+                <rect x="418" y="224" width="8" height="8"/>
+              </g>
+              <path d="M0 384 H480 V528 H0 Z" fill="url(#ctRoad)"/>
+              <path d="M0 384 H480" stroke="#e4572e" stroke-width="3" opacity="0.5"/>
+              <g stroke="#f4f6f8" stroke-width="3" opacity="0.5" stroke-dasharray="18 22">
+                <path d="M20 466 H460"/>
+              </g>
+              <!-- 骑行者 -->
+              <g transform="translate(196 300)">
+                <circle cx="6" cy="104" r="30" fill="none" stroke="#f4f6f8" stroke-width="5"/>
+                <circle cx="92" cy="104" r="30" fill="none" stroke="#f4f6f8" stroke-width="5"/>
+                <path d="M6 104 L46 44 L92 104" fill="none" stroke="#e4572e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M46 44 L54 24" stroke="#f4f6f8" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="60" cy="6" r="11" fill="#ffb07a"/>
+                <path d="M34 56 L70 48" stroke="#f4f6f8" stroke-width="4.5" stroke-linecap="round"/>
+              </g>
+              <g fill="#e4572e" opacity="0.4">
+                <path d="M120 440 h56" stroke="#e4572e" stroke-width="2" stroke-dasharray="6 10"/>
+                <path d="M300 440 h64" stroke="#e4572e" stroke-width="2" stroke-dasharray="6 10"/>
+              </g>
+              <text x="34" y="504" fill="#8fa0ba" font-size="13" letter-spacing="4" font-family="Georgia,serif">CITY RIDE · 2026</text>
+            </svg>
+          </figure>
+          <div class="ct-hero-float">
+            <span class="ct-play-dot">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <div>
+              <b>正在热播：夜骑三环 42 公里</b>
+              <small>4K 高清 · 单集 18 分钟</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S3 焦点内容：1 大图 + 文字列表 ============ -->
+  <section class="ct-section ct-section-alt" id="ctFocus">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Focus · 本周焦点</span>
+          <h2 class="ct-h2">本周<em>踩踏</em>焦点 · 值得放进片单的原创精品</h2>
+          <p class="ct-lead">编辑团队从近 300 条投稿中挑选出层次分明的一组内容：有夜骑长镜头，也有修车铺里的人情故事。所有影片均为官方发布的高清正版版本。</p>
+        </div>
+        <a href="#ctStream" class="ct-btn ct-btn-ghost">查看全部影片</a>
+      </div>
+
+      <div class="ct-focus-grid">
+        <article class="ct-focus-main">
+          <div class="ct-focus-cover">
+            <svg viewBox="0 0 640 360" role="img" aria-label="骑行者沿江边高架桥穿行的黄昏长镜头封面">
+              <defs>
+                <linearGradient id="ctFg1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#f6b37c"/>
+                  <stop offset="0.5" stop-color="#e4572e"/>
+                  <stop offset="1" stop-color="#7a2f1b"/>
+                </linearGradient>
+              </defs>
+              <rect width="640" height="360" fill="url(#ctFg1)"/>
+              <circle cx="500" cy="96" r="46" fill="#ffe6c9" opacity="0.9"/>
+              <g fill="#4a1f12" opacity="0.85">
+                <rect x="0" y="210" width="150" height="150"/>
+                <rect x="152" y="248" width="96" height="112"/>
+                <rect x="252" y="228" width="120" height="132"/>
+                <rect x="540" y="236" width="100" height="124"/>
+              </g>
+              <path d="M0 300 Q160 268 320 300 T640 292 V360 H0 Z" fill="#2b140c" opacity="0.9"/>
+              <g stroke="#ffe6c9" stroke-width="3" opacity="0.9" fill="none">
+                <path d="M130 330 l60 -26" stroke-linecap="round"/>
+              </g>
+              <g transform="translate(300 262)">
+                <circle cx="0" cy="34" r="16" fill="none" stroke="#ffe6c9" stroke-width="3"/>
+                <circle cx="52" cy="34" r="16" fill="none" stroke="#ffe6c9" stroke-width="3"/>
+                <path d="M0 34 L24 4 L52 34" fill="none" stroke="#ffe6c9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="30" cy="-14" r="7" fill="#ffe6c9"/>
+              </g>
+              <text x="28" y="46" fill="#fff5ea" font-size="15" font-weight="700" letter-spacing="3" font-family="Georgia,serif">CAITA ORIGINAL</text>
+            </svg>
+            <span class="ct-cover-tag">重点推荐 · 4K 高清</span>
+            <span class="ct-cover-play">
+              <i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i>
+            </span>
+          </div>
+          <div class="ct-focus-body">
+            <div class="ct-tags">
+              <span class="ct-tag">城市探索</span>
+              <span class="ct-tag ct-tag-blue">在地文化</span>
+              <span class="ct-tag ct-tag-green">原创</span>
+            </div>
+            <h3>《沿江四十二公里》：一条高架桥下的黄昏长镜头</h3>
+            <p>从旧码头到跨江大桥，六位踩踏创作者用一整段不剪辑的傍晚，记录江风、车铃、桥墩涂鸦与骑行者的呼吸。片中没有解说，只有环境声与链条转动的节奏，是目前社区播放完成度最高的一部城市纪录短片。</p>
+            <div class="ct-meta">
+              <span class="ct-meta-author">
+                <span class="ct-avatar" style="background:#e4572e">江</span>江岸片场
+              </span>
+              <span>12:48</span>
+              <span>播放 28.6 万</span>
+              <span>点赞 1.9 万</span>
+            </div>
+            <div class="ct-actions">
+              <button class="ct-act-btn" data-like>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 10v10H4V10zM7 10l5-7 1.5 1.2c.6.5.8 1.3.5 2L13 10h6a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>
+                <span data-like-num>19024</span>
+              </button>
+              <button class="ct-act-btn" data-save>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+                <span>收藏</span>
+              </button>
+              <button class="ct-act-btn" data-copy>复制链接</button>
+              <button class="ct-act-btn" data-comment>查看评论</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="ct-focus-list">
+          <article class="ct-focus-item">
+            <span class="ct-idx">01</span>
+            <div>
+              <h4>修车铺的第十年：老周和他修不完的旧车</h4>
+              <p>一间十二平米的铺子、三千多辆修过的车，一个手艺人如何看待"踩踏"这件事。</p>
+              <div class="ct-mi-meta"><span>人物访谈</span><span>09:22</span><span>播放 11.4 万</span></div>
+            </div>
+          </article>
+          <article class="ct-focus-item">
+            <span class="ct-idx">02</span>
+            <div>
+              <h4>雨天路书：湿滑路面的七个刹车判断</h4>
+              <p>把雨天骑行拆成可复用的判断清单，附慢放对照镜头与常见误区复盘。</p>
+              <div class="ct-mi-meta"><span>实用技巧</span><span>07:16</span><span>播放 8.7 万</span></div>
+            </div>
+          </article>
+          <article class="ct-focus-item">
+            <span class="ct-idx">03</span>
+            <div>
+              <h4>旧厂房改造的骑行补给站，如何成为社区据点</h4>
+              <p>从选址到动线设计，一间补给站的诞生记录，也是城市空间的再利用样本。</p>
+              <div class="ct-mi-meta"><span>品牌故事</span><span>14:05</span><span>播放 6.9 万</span></div>
+            </div>
+          </article>
+          <article class="ct-focus-item">
+            <span class="ct-idx">04</span>
+            <div>
+              <h4>凌晨四点的面包房，与一场通勤影像实验</h4>
+              <p>把清晨通勤拍成一支不加速的短片，用固定机位看城市如何一点点醒来。</p>
+              <div class="ct-mi-meta"><span>日常记录</span><span>05:41</span><span>播放 5.2 万</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S4 品牌故事 + 图文索引 ============ -->
+  <section class="ct-section" id="ctStory">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Brand Story · 品牌故事</span>
+          <h2 class="ct-h2">踩踏官方网站的<em>内容生态</em>是怎么长出来的</h2>
+          <p class="ct-lead">从三个人的骑行影像小组，到持续运营的城市影像社区，我们把这条路径完整地留在官网上。</p>
+        </div>
+      </div>
+
+      <div class="ct-story-grid">
+        <div>
+          <figure class="ct-story-visual">
+            <svg viewBox="0 0 500 400" role="img" aria-label="踩踏团队在旧厂房工作室内剪辑骑行影像的场景插画">
+              <defs>
+                <linearGradient id="ctWork" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#e6ecf6"/>
+                  <stop offset="1" stop-color="#cfd8e3"/>
+                </linearGradient>
+              </defs>
+              <rect width="500" height="400" fill="url(#ctWork)"/>
+              <rect x="36" y="44" width="196" height="128" rx="8" fill="#1f2a44"/>
+              <rect x="48" y="56" width="172" height="104" fill="#2c3d63"/>
+              <path d="M56 140 Q110 96 168 128 T232 112" stroke="#e4572e" stroke-width="3" fill="none"/>
+              <circle cx="110" cy="112" r="5" fill="#ffb07a"/>
+              <rect x="62" y="212" width="298" height="16" rx="8" fill="#f4f6f8"/>
+              <rect x="62" y="212" width="298" height="16" rx="8" fill="none" stroke="#a7b5ca" stroke-width="2"/>
+              <circle cx="252" cy="236" r="26" fill="#e4572e"/>
+              <circle cx="252" cy="236" r="26" fill="none" stroke="#c9441f" stroke-width="3" stroke-dasharray="8 7"/>
+              <path d="M96 250 l40 -34 l30 20 l52 -46" stroke="#2f8f6b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="332" y="196" width="120" height="150" rx="10" fill="#fff"/>
+              <rect x="348" y="214" width="88" height="7" rx="3" fill="#dde3ea"/>
+              <rect x="348" y="230" width="64" height="7" rx="3" fill="#dde3ea"/>
+              <rect x="348" y="246" width="76" height="7" rx="3" fill="#dde3ea"/>
+              <rect x="348" y="272" width="88" height="44" rx="6" fill="#e4572e" opacity="0.15"/>
+              <path d="M366 302 l18 -18 l16 12" stroke="#e4572e" stroke-width="3" fill="none"/>
+              <g fill="#1f2a44">
+                <circle cx="120" cy="330" r="22"/>
+                <circle cx="196" cy="330" r="22"/>
+                <circle cx="272" cy="330" r="22"/>
+              </g>
+              <g fill="#e4572e">
+                <circle cx="120" cy="330" r="7"/><circle cx="196" cy="330" r="7"/><circle cx="272" cy="330" r="7"/>
+              </g>
+            </svg>
+          </figure>
+          <p class="ct-story-cap">2021 年，第一间剪辑工作室，三台电脑、两台旧相机。</p>
+        </div>
+
+        <div class="ct-prose">
+          <h3>从一个骑行小组，到一个品牌的内容底座</h3>
+          <p>2021 年冬天，三位骑行爱好者在旧厂房里租下一间小屋，只做一件事：把每次出行拍下的素材剪成可回看的短片。那时的设备很普通，画面也不够"漂亮"，但镜头里的人都愿意在片尾留下自己的名字。<strong>踩踏</strong>这个名字，就来自车链转动时最熟悉的声音。</p>
+          <p>四年过去，踩踏已成为一家持续运营的<strong>企业级视频品牌</strong>，官方网站承载超过 2860 部原创作品，覆盖 32 座城市。我们始终坚持编辑初审与创作者互评并行的机制，让"上首页"成为品质的认可，而非流量的偶然。</p>
+          <p>我们相信内容生态不是靠补贴堆出来的，而是靠一群彼此信任的创作者长期供给。<strong>官方发布</strong>的每一部影片都经过画质与版权核验，用户可以在官网上放心播放、收藏与分享。</p>
+
+          <div class="ct-index-list">
+            <a class="ct-index-item" href="#ctStream">
+              <span class="ct-idx-num">01</span>
+              <div>
+                <h4>创业初期：用两台相机记录的三十次出行</h4>
+                <small>品牌故事 · 阅读 3.2 万</small>
+              </div>
+              <span class="ct-idx-more">查看</span>
+            </a>
+            <a class="ct-index-item" href="#ctAuthors">
+              <span class="ct-idx-num">02</span>
+              <div>
+                <h4>创作者机制：我们如何审核一条投稿</h4>
+                <small>行业观察 · 阅读 2.7 万</small>
+              </div>
+              <span class="ct-idx-more">查看</span>
+            </a>
+            <a class="ct-index-item" href="#ctDeep">
+              <span class="ct-idx-num">03</span>
+              <div>
+                <h4>城市影像的三条准则：真实、克制、可回看</h4>
+                <small>深度解析 · 阅读 4.1 万</small>
+              </div>
+              <span class="ct-idx-more">查看</span>
+            </a>
+            <a class="ct-index-item" href="#ctRank">
+              <span class="ct-idx-num">04</span>
+              <div>
+                <h4>榜单背后的算法：热度之外，口碑更重要</h4>
+                <small>数据榜单 · 阅读 1.9 万</small>
+              </div>
+              <span class="ct-idx-more">查看</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S3 影像流：单列图文列表 ============ -->
+  <section class="ct-section ct-section-alt" id="ctStream">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Stream · 影像流</span>
+          <h2 class="ct-h2">踩踏社区本周上新的<em>精品内容</em></h2>
+          <p class="ct-lead">每一条都标注了标签、作者与数据，方便你判断是否值得花十几分钟。所有影片均可在官网直接播放，无需跳转。</p>
+        </div>
+        <a href="#ctSubmitTop" class="ct-btn ct-btn-primary">我要上传作品</a>
+      </div>
+
+      <div class="ct-stream">
+
+        <article class="ct-vcard">
+          <div class="ct-vthumb">
+            <svg viewBox="0 0 320 180" role="img" aria-label="暴雨中骑行者在积水路面刹车的慢放画面">
+              <rect width="320" height="180" fill="#2c3d63"/>
+              <g stroke="#8fa0ba" stroke-width="1.4" opacity="0.55">
+                <path d="M20 20 L8 62"/><path d="M64 12 L52 58"/><path d="M110 26 L98 70"/>
+                <path d="M156 10 L146 56"/><path d="M206 24 L194 68"/><path d="M256 16 L246 60"/><path d="M300 28 L290 72"/>
+              </g>
+              <path d="M0 128 H320 V180 H0 Z" fill="#1f2a44"/>
+              <g stroke="#e4572e" stroke-width="2.4" opacity="0.8" fill="none">
+                <path d="M40 152 h44"/><path d="M120 158 h40"/><path d="M216 150 h52"/>
+              </g>
+              <g transform="translate(140 96)">
+                <circle cx="0" cy="26" r="13" fill="none" stroke="#f4f6f8" stroke-width="3"/>
+                <circle cx="44" cy="26" r="13" fill="none" stroke="#f4f6f8" stroke-width="3"/>
+                <path d="M0 26 L20 2 L44 26" fill="none" stroke="#f4f6f8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <span class="ct-dur">07:16</span>
+            <span class="ct-vplay"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i></span>
+          </div>
+          <div class="ct-vbody">
+            <div class="ct-tags">
+              <span class="ct-tag ct-tag-blue">实用技巧</span>
+              <span class="ct-tag">慢放对照</span>
+            </div>
+            <h3>雨天路书：湿滑路面的七个刹车判断</h3>
+            <p>把雨天骑行拆成七个可复用的判断节点，每个节点都配 0.5 倍慢放对照镜头。片中对比了三种常见刹车姿势的停车距离，并复盘了两起社区里真实发生过的打滑案例，适合作为雨季前的一次系统复习。</p>
+            <div class="ct-meta">
+              <span class="ct-meta-author"><span class="ct-avatar" style="background:#2c3d63">雨</span>雨天档案室</span>
+              <span>播放 8.7 万</span>
+              <span>点赞 6321</span>
+              <span>收藏 4188</span>
+            </div>
+            <div class="ct-actions">
+              <button class="ct-act-btn" data-like>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 10v10H4V10zM7 10l5-7 1.5 1.2c.6.5.8 1.3.5 2L13 10h6a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>
+                <span data-like-num>6321</span>
+              </button>
+              <button class="ct-act-btn" data-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span>收藏</span></button>
+              <button class="ct-act-btn" data-copy>复制链接</button>
+              <button class="ct-act-btn" data-report>反馈</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ct-vcard">
+          <div class="ct-vthumb">
+            <svg viewBox="0 0 320 180" role="img" aria-label="老修车铺内挂满旧零件的墙与工作台画面">
+              <rect width="320" height="180" fill="#e9e2d5"/>
+              <rect x="0" y="126" width="320" height="54" fill="#c7b79c"/>
+              <g stroke="#8a7a62" stroke-width="2.4" fill="none">
+                <circle cx="64" cy="66" r="26"/>
+                <circle cx="64" cy="66" r="10"/>
+                <circle cx="150" cy="56" r="20"/>
+                <circle cx="150" cy="56" r="7"/>
+                <path d="M214 40 l30 0 M228 40 l0 44"/>
+                <path d="M250 80 l34 -14"/>
+                <path d="M40 100 h34"/>
+              </g>
+              <rect x="26" y="134" width="120" height="10" rx="4" fill="#8a7a62"/>
+              <rect x="186" y="134" width="96" height="10" rx="4" fill="#8a7a62"/>
+              <circle cx="100" cy="112" r="12" fill="#e4572e" opacity="0.75"/>
+              <rect x="150" y="150" width="60" height="6" rx="3" fill="#8a7a62" opacity="0.7"/>
+            </svg>
+            <span class="ct-dur">09:22</span>
+            <span class="ct-vplay"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i></span>
+          </div>
+          <div class="ct-vbody">
+            <div class="ct-tags">
+              <span class="ct-tag">人物访谈</span>
+              <span class="ct-tag ct-tag-green">在地文化</span>
+            </div>
+            <h3>修车铺的第十年：老周和他修不完的旧车</h3>
+            <p>十二年、三千多辆旧车，老周的铺子在一条即将改造的街上。镜头没有煽情，只是安静地看他调链条、补内胎、和熟客聊天。片中他说的一句话被社区反复引用："车没修坏过，人先急了。"</p>
+            <div class="ct-meta">
+              <span class="ct-meta-author"><span class="ct-avatar" style="background:#2f8f6b">周</span>巷口制片</span>
+              <span>播放 11.4 万</span>
+              <span>点赞 9082</span>
+              <span>收藏 5340</span>
+            </div>
+            <div class="ct-actions">
+              <button class="ct-act-btn" data-like>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 10v10H4V10zM7 10l5-7 1.5 1.2c.6.5.8 1.3.5 2L13 10h6a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>
+                <span data-like-num>9082</span>
+              </button>
+              <button class="ct-act-btn" data-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span>收藏</span></button>
+              <button class="ct-act-btn" data-copy>复制链接</button>
+              <button class="ct-act-btn" data-author>作者信息</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ct-vcard">
+          <div class="ct-vthumb">
+            <svg viewBox="0 0 320 180" role="img" aria-label="旧厂房改造的骑行补给站前景与内部灯光明亮的长桌">
+              <rect width="320" height="180" fill="#1f2a44"/>
+              <rect x="24" y="38" width="272" height="110" rx="6" fill="#2c3d63"/>
+              <g fill="#ffb07a" opacity="0.9">
+                <rect x="46" y="58" width="46" height="34" rx="3"/>
+                <rect x="112" y="58" width="46" height="34" rx="3"/>
+                <rect x="178" y="58" width="46" height="34" rx="3"/>
+                <rect x="244" y="58" width="34" height="34" rx="3"/>
+              </g>
+              <rect x="60" y="120" width="200" height="9" rx="4" fill="#8fa0ba"/>
+              <g stroke="#e4572e" stroke-width="2.6" fill="none">
+                <circle cx="96" cy="152" r="10"/><circle cx="128" cy="152" r="10"/>
+                <path d="M96 152 L112 136 L128 152"/>
+              </g>
+            </svg>
+            <span class="ct-dur">14:05</span>
+            <span class="ct-vplay"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i></span>
+          </div>
+          <div class="ct-vbody">
+            <div class="ct-tags">
+              <span class="ct-tag ct-tag-blue">品牌故事</span>
+              <span class="ct-tag">城市空间</span>
+            </div>
+            <h3>旧厂房改造的骑行补给站，如何成为社区据点</h3>
+            <p>从选址、动线到灯光色温，一间补给站的全过程记录。片子最有价值的部分是三次失败方案的复盘：储物区挡住动线、饮水点离入口太远、座位数量误判。适合想做线下空间的内容创作者参考。</p>
+            <div class="ct-meta">
+              <span class="ct-meta-author"><span class="ct-avatar" style="background:#c98a2f">厂</span>老厂房计划</span>
+              <span>播放 6.9 万</span>
+              <span>点赞 5104</span>
+              <span>收藏 3877</span>
+            </div>
+            <div class="ct-actions">
+              <button class="ct-act-btn" data-like>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 10v10H4V10zM7 10l5-7 1.5 1.2c.6.5.8 1.3.5 2L13 10h6a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>
+                <span data-like-num>5104</span>
+              </button>
+              <button class="ct-act-btn" data-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span>收藏</span></button>
+              <button class="ct-act-btn" data-copy>复制链接</button>
+              <button class="ct-act-btn" data-report>反馈</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ct-vcard">
+          <div class="ct-vthumb">
+            <svg viewBox="0 0 320 180" role="img" aria-label="凌晨面包房亮灯窗口与窗外停放的单车画面">
+              <rect width="320" height="180" fill="#16202f"/>
+              <rect x="70" y="40" width="180" height="110" rx="6" fill="#3a2a1c"/>
+              <rect x="86" y="58" width="148" height="76" rx="4" fill="#ffb07a" opacity="0.92"/>
+              <g fill="#7a4a2a">
+                <rect x="96" y="102" width="34" height="24" rx="3"/>
+                <rect x="142" y="102" width="34" height="24" rx="3"/>
+                <rect x="188" y="102" width="34" height="24" rx="3"/>
+              </g>
+              <g stroke="#16202f" stroke-width="2.4" fill="none">
+                <circle cx="246" cy="152" r="13"/>
+                <circle cx="290" cy="152" r="13"/>
+                <path d="M246 152 L266 128 L290 152"/>
+              </g>
+            </svg>
+            <span class="ct-dur">05:41</span>
+            <span class="ct-vplay"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i></span>
+          </div>
+          <div class="ct-vbody">
+            <div class="ct-tags">
+              <span class="ct-tag">日常记录</span>
+              <span class="ct-tag ct-tag-green">治愈影像</span>
+            </div>
+            <h3>凌晨四点的面包房，与一场通勤影像实验</h3>
+            <p>固定机位、不加速、不配乐，只有街道从安静到喧闹的过程声。作者把这部片定义为"通勤影像实验"，想验证一个想法：当镜头足够克制，日常本身就有叙事。评论区里有人说，看完决定第二天早起骑车上班。</p>
+            <div class="ct-meta">
+              <span class="ct-meta-author"><span class="ct-avatar" style="background:#e4572e">晨</span>凌晨四点半</span>
+              <span>播放 5.2 万</span>
+              <span>点赞 4410</span>
+              <span>收藏 2903</span>
+            </div>
+            <div class="ct-actions">
+              <button class="ct-act-btn" data-like>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 10v10H4V10zM7 10l5-7 1.5 1.2c.6.5.8 1.3.5 2L13 10h6a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg>
+                <span data-like-num>4410</span>
+              </button>
+              <button class="ct-act-btn" data-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span>收藏</span></button>
+              <button class="ct-act-btn" data-copy>复制链接</button>
+              <button class="ct-act-btn" data-author>作者信息</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S4/关键词解析：800 字深度 ============ -->
+  <section class="ct-section ct-deep" id="ctDeep">
+    <div class="ct-wrap">
+      <div class="ct-deep-head">
+        <span class="ct-eyebrow">Insight · 深度解析</span>
+        <h2 class="ct-h2">读懂<em>踩踏</em>：一个动作，如何成为城市的共同语言</h2>
+        <p class="ct-lead">我们把"踩踏"拆成动作、节奏、空间与社区四层，解释一个再普通不过的动作，为什么值得被持续拍摄与长期记录。以下内容共约 900 字，是踩踏官方网站对品牌关键词最完整的一次公开表述。</p>
+      </div>
+
+      <div class="ct-deep-grid">
+        <div class="ct-deep-card">
+          <h3><span class="ct-dnum">01</span>动作：从发力到重复</h3>
+          <p>"踩踏"首先是一个具体的身体动作：脚掌压住踏板，膝踝髋依次发力，链条把力传到后轮。它不复杂，但极其讲究节奏。落在画面里，它形成一种可被识别的运动线条——上坡时短促，平路时绵长，下坡时几乎变成静音。<strong>踩踏</strong>的内容之所以耐看，正在于这种线条可以被无限细分：换一个齿比、换一段路面，节奏就完全不同。</p>
+          <p>我们在官网上线的慢放对照功能，就是为这个层面准备的。创作者可以上传同一段路的两种踩踏节奏，让观众直接在时间线上看到差别。这是"踩踏"作为影像主题的第一层价值：它让抽象的节奏变得可以被看见、被比较、被讨论。</p>
+        </div>
+
+        <div class="ct-deep-card">
+          <h3><span class="ct-dnum">02</span>空间：城市被重新丈量</h3>
+          <p>当一个人开始频繁踩踏，他对城市的感知会被重写。原本只记得地铁站名的路段，会变成一连串坡道、减速带、树荫与风口。这种"重新丈量"是踩踏内容最独特的素材来源：同一座城市，在不同创作者脚下几乎能被拍成不同的地方。</p>
+          <p>因此我们坚持按城市归档，而不是只按热度排序。官方网站的每一座覆盖城市都有一页本地影像索引，包含路书、补给点与在地创作者。对品牌而言，这是一种<strong>垂直领域</strong>的深耕；对用户而言，这是一份可以真正拿去用的城市使用说明。</p>
+        </div>
+
+        <div class="ct-deep-card">
+          <h3><span class="ct-dnum">03</span>社区：真实比精致更重要</h3>
+          <p>踩踏社区里播放量最高的一批作品，往往不是画质最好的，而是最愿意露出真实状态的那一批：雨里打滑、半路爆胎、找不到补给点、爬坡推车。我们不鼓励创作者为了"好看"而剪掉这些段落。相反，编辑在初审时会主动建议保留——因为新观众需要的不是完美示范，而是可参照的真实经验。</p>
+          <p>这种偏好直接塑造了社区气质：<strong>用户至上</strong>不是一句口号，而是体现在每一条评论都有人回、每一次纠错都会被置顶。我们也会定期做公开复盘，把有争议的判断标准写进官方发布说明，让规则本身可被质询。</p>
+        </div>
+
+        <div class="ct-deep-card">
+          <h3><span class="ct-dnum">04</span>品牌：长期主义的影像档案</h3>
+          <p>如果把四年来的作品按时间轴排开，会看到一条清晰的线：镜头越来越稳，叙事越来越克制，但题材始终围着普通人的出行打转。这正是踩踏作为一个品牌想留下的东西——一份关于城市出行方式的长期影像档案，而不是一阵风式的热点合集。</p>
+          <p>也因此，我们在合作上保持克制：只与真正理解"出行"这件事的伙伴共创，不接与内容调性冲突的短期项目。官方网站、企业动态与精品内容三条线并行，让品牌有稳定的对外表达，也让创作者知道自己在为一件长期的事供稿。持续运营，本身就是对社区最实在的诚意。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 专题企划 ============ -->
+  <section class="ct-section ct-section-alt" id="ctSpecials">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Series · 专题企划</span>
+          <h2 class="ct-h2">踩踏的<em>专题企划</em>正在更新</h2>
+          <p class="ct-lead">每个专题都由编辑部与创作者共同策划，更新状态实时同步。你可以订阅专题，也可以直接投稿参与。</p>
+        </div>
+      </div>
+
+      <div class="ct-specials">
+        <article class="ct-special">
+          <div class="ct-special-top">
+            <span class="ct-tag ct-tag-blue">城市纪录</span>
+            <span class="ct-special-status">更新中</span>
+          </div>
+          <h3>城市踩踏 2026·冬季篇</h3>
+          <p>以六座城市为坐标，记录冬季清晨与夜晚的出行状态，目前已完成三城拍摄。</p>
+          <ul class="ct-special-list">
+            <li>第一集：沿江四十二公里的黄昏长镜头</li>
+            <li>第二集：早班车之前，桥下的清扫队</li>
+            <li>第三集：零下三度的坡道与手套</li>
+          </ul>
+          <a class="ct-special-link" href="#ctStream">查看专题 →</a>
+        </article>
+
+        <article class="ct-special">
+          <div class="ct-special-top">
+            <span class="ct-tag">技巧栏目</span>
+            <span class="ct-special-status">更新中</span>
+          </div>
+          <h3>路书实验室·第二季</h3>
+          <p>把常见的路面问题拆成可验证的小实验，每期一个变量，附完整数据与拍摄说明。</p>
+          <ul class="ct-special-list">
+            <li>雨天刹车七判断：慢放对照完整版</li>
+            <li>夜骑照明：三档亮度实测与眩光控制</li>
+            <li>长下坡：碟刹温度与手感变化的记录</li>
+          </ul>
+          <a class="ct-special-link" href="#ctDeep">查看专题 →</a>
+        </article>
+
+        <article class="ct-special">
+          <div class="ct-special-top">
+            <span class="ct-tag ct-tag-green">社区共创</span>
+            <span class="ct-special-status ct-soon">即将开播</span>
+          </div>
+          <h3>我的第一万公里</h3>
+          <p>面向全体社区成员的共创企划，征集第一万公里那一刻的真实影像与三句话。</p>
+          <ul class="ct-special-list">
+            <li>征集时间：12 月 1 日至 12 月 20 日</li>
+            <li>入选作品将在首页专题集中放映</li>
+            <li>优秀投稿有机会进入年度共创长片</li>
+          </ul>
+          <a class="ct-special-link" href="#ctSubmitTop">参与投稿 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S5 创作者矩阵：双列简介 ============ -->
+  <section class="ct-section" id="ctAuthors">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Creators · 创作者</span>
+          <h2 class="ct-h2">踩踏社区里，长期供给<em>原创</em>的人</h2>
+          <p class="ct-lead">他们来自不同城市、不同职业，但都在用影像回答同一个问题：我们如何在这座城市里移动。</p>
+        </div>
+        <button class="ct-btn ct-btn-ghost" id="ctAuthorMore">认识更多创作者</button>
+      </div>
+
+      <div class="ct-authors">
+        <article class="ct-author-card">
+          <span class="ct-author-av" style="background:#e4572e">江</span>
+          <div class="ct-author-info">
+            <h3>江岸片场</h3>
+            <p class="ct-author-field">城市纪录 · 长镜头</p>
+            <p class="ct-author-bio">前广告摄影助理，现专注城市纪录短片。偏爱固定机位与自然环境声，认为好片子应该让人慢下来。在踩踏上传的第一部作品就入选了年度精选，目前正推进冬季六城拍摄计划。</p>
+            <div class="ct-author-nums"><span>作品 <b>86</b></span><span>粉丝 <b>12.4 万</b></span></div>
+            <div class="ct-author-links">
+              <button class="ct-mini-btn" data-author-detail="江岸片场">简介</button>
+              <button class="ct-mini-btn" data-copy>分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ct-author-card">
+          <span class="ct-author-av" style="background:#2c3d63">雨</span>
+          <div class="ct-author-info">
+            <h3>雨天档案室</h3>
+            <p class="ct-author-field">实用技巧 · 慢放测评</p>
+            <p class="ct-author-bio">两名工程师组成的双人账号，专门做可控变量下的骑行小实验。每条片子都会公开拍摄参数与测量方式，被社区称为"最不浪漫但最有用的频道"。雨天路书系列累计播放已超过百万。</p>
+            <div class="ct-author-nums"><span>作品 <b>54</b></span><span>粉丝 <b>9.8 万</b></span></div>
+            <div class="ct-author-links">
+              <button class="ct-mini-btn" data-author-detail="雨天档案室">简介</button>
+              <button class="ct-mini-btn" data-copy>分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ct-author-card">
+          <span class="ct-author-av" style="background:#2f8f6b">周</span>
+          <div class="ct-author-info">
+            <h3>巷口制片</h3>
+            <p class="ct-author-field">人物访谈 · 在地文化</p>
+            <p class="ct-author-bio">从电视台纪录片组出来独立创作，习惯在小空间里找故事。修车铺系列拍了三个月，素材超过四十小时。相信"把镜头放低一点，人就会说话"，作品多次被选入官方发布的年度合辑。</p>
+            <div class="ct-author-nums"><span>作品 <b>41</b></span><span>粉丝 <b>7.6 万</b></span></div>
+            <div class="ct-author-links">
+              <button class="ct-mini-btn" data-author-detail="巷口制片">简介</button>
+              <button class="ct-mini-btn" data-copy>分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ct-author-card">
+          <span class="ct-author-av" style="background:#c98a2f">厂</span>
+          <div class="ct-author-info">
+            <h3>老厂房计划</h3>
+            <p class="ct-author-field">品牌故事 · 空间观察</p>
+            <p class="ct-author-bio">建筑背景出身，拍旧空间改造与社区据点。擅长把失败方案完整保留在片子里，认为复盘比结论更有价值。补给站系列上线后，被多个城市社群邀请做线下分享，也促成了两次跨城共创。</p>
+            <div class="ct-author-nums"><span>作品 <b>33</b></span><span>粉丝 <b>5.9 万</b></span></div>
+            <div class="ct-author-links">
+              <button class="ct-mini-btn" data-author-detail="老厂房计划">简介</button>
+              <button class="ct-mini-btn" data-copy>分享</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 榜单 ============ -->
+  <section class="ct-section ct-section-alt" id="ctRank">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Ranking · 数据榜单</span>
+          <h2 class="ct-h2">踩踏<em>口碑</em>与热度，双重口径</h2>
+          <p class="ct-lead">热度看播放，口碑看收藏与完播。两份榜单分开计算，避免"只看流量"的偏斜。</p>
+        </div>
+      </div>
+
+      <div class="ct-rank-grid">
+        <div class="ct-rank-col">
+          <div class="ct-rank-head"><h3>本周热度榜</h3><span>更新于 11·22</span></div>
+          <div class="ct-rank-list">
+            <div class="ct-rank-item"><span class="ct-rn">1</span><span class="ct-rt">沿江四十二公里<small>城市纪录 · 江岸片场</small></span><span class="ct-rv">28.6 万</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">2</span><span class="ct-rt">修车铺的第十年<small>人物访谈 · 巷口制片</small></span><span class="ct-rv">11.4 万</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">3</span><span class="ct-rt">雨天路书七判断<small>实用技巧 · 雨天档案室</small></span><span class="ct-rv">8.7 万</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">4</span><span class="ct-rt">旧厂房补给站<small>品牌故事 · 老厂房计划</small></span><span class="ct-rv">6.9 万</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">5</span><span class="ct-rt">凌晨四点的面包房<small>日常记录 · 凌晨四点半</small></span><span class="ct-rv">5.2 万</span></div>
+          </div>
+        </div>
+
+        <div class="ct-rank-col">
+          <div class="ct-rank-head"><h3>口碑榜（收藏率）</h3><span>更新于 11·22</span></div>
+          <div class="ct-rank-list">
+            <div class="ct-rank-item"><span class="ct-rn">1</span><span class="ct-rt">旧厂房补给站<small>收藏率 56.2%</small></span><span class="ct-rv">口碑 9.4</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">2</span><span class="ct-rt">雨天路书七判断<small>收藏率 48.1%</small></span><span class="ct-rv">口碑 9.2</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">3</span><span class="ct-rt">修车铺的第十年<small>收藏率 46.8%</small></span><span class="ct-rv">口碑 9.1</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">4</span><span class="ct-rt">沿江四十二公里<small>收藏率 41.3%</small></span><span class="ct-rv">口碑 8.9</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">5</span><span class="ct-rt">凌晨四点的面包房<small>收藏率 39.6%</small></span><span class="ct-rv">口碑 8.7</span></div>
+          </div>
+        </div>
+
+        <div class="ct-rank-col">
+          <div class="ct-rank-head"><h3>新人榜</h3><span>本月新入驻</span></div>
+          <div class="ct-rank-list">
+            <div class="ct-rank-item"><span class="ct-rn">1</span><span class="ct-rt">北环夜行<small>夜骑影像 · 3 部作品</small></span><span class="ct-rv">+1.2 万</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">2</span><span class="ct-rt">桥下录音组<small>环境声采集 · 2 部作品</small></span><span class="ct-rv">+8600</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">3</span><span class="ct-rt">单车食堂<small>骑行与饮食 · 4 部作品</small></span><span class="ct-rv">+7100</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">4</span><span class="ct-rt">坡道观察员<small>坡度实测 · 2 部作品</small></span><span class="ct-rv">+5400</span></div>
+            <div class="ct-rank-item"><span class="ct-rn">5</span><span class="ct-rt">慢速通勤<small>日常记录 · 5 部作品</small></span><span class="ct-rv">+4900</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 用户评价：双列短评 ============ -->
+  <section class="ct-section" id="ctComments">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Voices · 用户评价</span>
+          <h2 class="ct-h2">他们这样评价踩踏<em>官方网站</em></h2>
+          <p class="ct-lead">来自不同城市、不同骑行年限的用户，语气与关注点都不一样。我们保留原样，没有润色。</p>
+        </div>
+        <button class="ct-btn ct-btn-ghost" id="ctAddComment">也写一条</button>
+      </div>
+
+      <div class="ct-comments">
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#e4572e">林</span>
+            <div class="ct-comment-who"><b>林间慢骑</b><small>杭州 · 骑行 4 年</small></div>
+            <span class="ct-stars">★★★★★</span>
+          </div>
+          <p>最打动我的是那些没剪掉的失败镜头。别的地方都在展示最好的一面，这里会老实告诉你<em>哪段路推车上坡更省力</em>。作为新手，这种诚实比任何攻略都管用。</p>
+        </article>
+
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#2c3d63">陈</span>
+            <div class="ct-comment-who"><b>陈工不加班</b><small>武汉 · 通勤党</small></div>
+            <span class="ct-stars">★★★★☆</span>
+          </div>
+          <p>雨天那期我看了三遍，第二天就照着调整了刹车习惯，确实稳了不少。唯一想提的是，希望每期能多给一点<em>不同体重的参考数据</em>，我这种大体格照着参数调总感觉差一点。</p>
+        </article>
+
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#2f8f6b">周</span>
+            <div class="ct-comment-who"><b>周末去看桥</b><small>南京 · 影像爱好者</small></div>
+            <span class="ct-stars">★★★★★</span>
+          </div>
+          <p>我是被朋友安利来看《沿江四十二公里》的，说实话一开始觉得十八分钟太长，结果一口气看完。环境声处理得非常舒服，<em>没有多余的配乐</em>，这一点很少见，也很难得。</p>
+        </article>
+
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#c98a2f">何</span>
+            <div class="ct-comment-who"><b>何师傅的店</b><small>成都 · 修车从业者</small></div>
+            <span class="ct-stars">★★★★★</span>
+          </div>
+          <p>巷口那期的修车师傅像极了我认识的同行。片尾他说的那句"车没修坏过，人先急了"，我在店里也天天讲。能让普通人被认真拍下来，这件事本身就有<em>社会价值</em>。</p>
+        </article>
+
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#7a4a2a">阿</span>
+            <div class="ct-comment-who"><b>阿树不吃糖</b><small>广州 · 新用户</small></div>
+            <span class="ct-stars">★★★☆☆</span>
+          </div>
+          <p>内容质量没话说，就是希望搜索再好用一点。有一次想找某个城市的补给点，翻了好几页才找到。<em>如果能按路线或距离筛</em>，对新用户会友好很多。</p>
+        </article>
+
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#2c3d63">高</span>
+            <div class="ct-comment-who"><b>高架桥下的风</b><small>上海 · 创作者</small></div>
+            <span class="ct-stars">★★★★★</span>
+          </div>
+          <p>作为投稿者说两句：编辑给的修改意见很具体，会直接指出时间轴上的问题，不是那种"再改改"的敷衍回复。这种<em>专业度</em>会让人愿意持续供稿，我今年的目标是在这里发满十部片。</p>
+        </article>
+
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#2f8f6b">米</span>
+            <div class="ct-comment-who"><b>米粒开小差</b><small>西安 · 亲子骑行</small></div>
+            <span class="ct-stars">★★★★☆</span>
+          </div>
+          <p>带孩子一起看的，他最喜欢凌晨面包房那期，说想看面包几点出炉。整体很干净，没有奇怪的弹窗，这点给好评。<em>希望多做一些适合和孩子一起看的</em>轻松内容。</p>
+        </article>
+
+        <article class="ct-comment">
+          <div class="ct-comment-top">
+            <span class="ct-avatar" style="background:#e4572e">夜</span>
+            <div class="ct-comment-who"><b>夜班归人</b><small>深圳 · 夜骑者</small></div>
+            <span class="ct-stars">★★★★★</span>
+          </div>
+          <p>下夜班回家看两集已经成习惯了。这里的好，是它不催你快，也不劝你买什么东西。<em>只是安静记录有人在骑车</em>。对我这种作息奇怪的人来说，是一种很轻的陪伴。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 辅助区：企业动态 + 合作 + FAQ ============ -->
+  <section class="ct-section ct-section-alt" id="ctHelp">
+    <div class="ct-wrap">
+      <div class="ct-sec-head">
+        <div>
+          <span class="ct-eyebrow">Updates · 企业动态与帮助</span>
+          <h2 class="ct-h2">踩踏<em>官方发布</em>与常见问题</h2>
+          <p class="ct-lead">品牌资讯、合作伙伴与使用问题统一放在这里，便于创作者和用户一次查清。</p>
+        </div>
+      </div>
+
+      <div class="ct-assist-grid">
+        <div>
+          <h3 class="ct-h3" style="margin-bottom:14px;">企业动态</h3>
+          <div class="ct-news-list">
+            <div class="ct-news-item">
+              <div class="ct-news-date"><b>22</b><small>11 月</small></div>
+              <div>
+                <h4>城市踩踏 2026·冬季篇正式开播</h4>
+                <p>首更六集城市夜骑影像，覆盖南京、武汉、杭州等地，全部为 4K 高清正版版本。</p>
+              </div>
+            </div>
+            <div class="ct-news-item">
+              <div class="ct-news-date"><b>20</b><small>11 月</small></div>
+              <div>
+                <h4>创作者激励计划第三期报名开启</h4>
+                <p>面向原创影像创作者，提供拍摄补助与官方发布资源位，报名截止 12 月 20 日。</p>
+              </div>
+            </div>
+            <div class="ct-news-item">
+              <div class="ct-news-date"><b>18</b><small>11 月</small></div>
+              <div>
+                <h4>新版播放器上线，支持路书同屏</h4>
+                <p>可在播放同时展开路书与坡度信息，慢放最低至 0.25 倍，适配移动端竖屏浏览。</p>
+              </div>
+            </div>
+            <div class="ct-news-item">
+              <div class="ct-news-date"><b>12</b><small>11 月</small></div>
+              <div>
+                <h4>踩踏与四家城市空间达成内容共创</h4>
+                <p>围绕补给站、旧厂房改造与街区影像展开长期合作，相关专题将在年内陆续上线。</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="ct-h3" style="margin:26px 0 10px;">合作品牌与伙伴</h3>
+          <div class="ct-partners">
+            <div class="ct-partner"><i style="background:#1f2a44">桥</i>桥下空间计划</div>
+            <div class="ct-partner"><i style="background:#e4572e">路</i>路书实验室</div>
+            <div class="ct-partner"><i style="background:#2f8f6b">厂</i>老厂房共创社</div>
+            <div class="ct-partner"><i style="background:#c98a2f">晨</i>凌晨影像联盟</div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="ct-h3" style="margin-bottom:14px;">常见问题</h3>
+          <div class="ct-faq" style="margin-top:0;">
+            <details open>
+              <summary>投稿需要满足哪些基本要求？</summary>
+              <p>画面分辨率不低于 1080P，原创或已获得完整授权，时长建议 3 至 30 分钟。请在投稿时附上拍摄说明与素材清单，便于编辑初审。涉及他人肖像的内容需提供出镜同意说明。</p>
+            </details>
+            <details>
+              <summary>审核一般需要多久？</summary>
+              <p>常规审核为 3 至 5 个工作日，专题征稿期可能延长至 7 个工作日。审核结果会通过官方发布渠道通知，未通过时会给出具体修改建议，可直接修改后重新提交。</p>
+            </details>
+            <details>
+              <summary>被收录后会有什么权益？</summary>
+              <p>作品将获得官方网站推荐位、高清播放支持与版权存证编号。优质内容有机会进入年度合辑与专题企划，并获得创作者激励计划的拍摄补助，具体以当期公告为准。</p>
+            </details>
+            <details>
+              <summary>能否下载站内影片？</summary>
+              <p>站内影片版权归创作者与平台共有，默认不提供公开下载。创作者可在后台下载自己的原始上传文件；机构合作需求请通过联系邮箱提交说明，我们会协助对接授权。</p>
+            </details>
+            <details>
+              <summary>如何参与专题企划或比赛？</summary>
+              <p>进入对应专题页即可看到征集入口与时间安排。比赛类企划会在官方发布区公布评审维度与投票规则，投稿即视为同意相关条款，投票结果与终审结果都会公示。</p>
+            </details>
+            <details>
+              <summary>发现内容有问题怎么反馈？</summary>
+              <p>每条影片下方都有反馈入口，可选择版权、画面、信息错误等类别提交。核实后我们会在 48 小时内处理，必要时下架并公开说明，处理记录可在更新日志中查询。</p>
+            </details>
+            <details>
+              <summary>创作者激励计划如何申请？</summary>
+              <p>在个人中心选择"激励计划"提交近三个月的作品列表与拍摄计划。评审侧重内容的持续性与在地性，不以粉丝量作为唯一标准，入选后按季度发放补助与资源位。</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA 投稿 ============ -->
+  <section class="ct-section" style="padding-top:0;">
+    <div class="ct-wrap">
+      <div class="ct-cta">
+        <div>
+          <h2>把你的踩踏，交给踩踏官方网站</h2>
+          <p>无论是一段通勤、一次夜骑，还是街角修车铺里的十分钟，只要它真实、有细节，就值得被认真剪出来。上传作品，加入持续运营的城市影像社区。</p>
+        </div>
+        <div class="ct-cta-actions">
+          <button class="ct-btn ct-btn-primary" id="ctSubmitCta">立即投稿</button>
+          <button class="ct-btn ct-btn-ghost" id="ctShareCta">分享给同好</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ S8 页脚 ============ -->
+<footer class="ct-footer">
+  <div class="ct-wrap">
+    <div class="ct-footer-grid">
+      <div class="ct-footer-brand">
+        <a href="#ctTop" class="ct-logo" aria-label="踩踏官网首页">
+          <span class="ct-logo-mark">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="18" cy="46" r="11" fill="none" stroke="#f4f6f8" stroke-width="3.5"/>
+              <circle cx="46" cy="46" r="11" fill="none" stroke="#f4f6f8" stroke-width="3.5"/>
+              <path d="M18 46 L33 20 L46 46" fill="none" stroke="#e4572e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="ct-logo-text">
+            <b>踩踏</b>
+            <span>CAITA · 官方视频门户</span>
+          </span>
+        </a>
+        <p>踩踏官方网站，专注城市骑行与街头生活影像的原创视频社区。深耕垂直领域，坚持正版高清与真实记录，为创作者与企业搭建值得信赖的内容生态。</p>
+      </div>
+
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#ctFocus">本周焦点</a></li>
+          <li><a href="#ctStory">品牌故事</a></li>
+          <li><a href="#ctStream">影像流</a></li>
+          <li><a href="#ctDeep">深度解析</a></li>
+          <li><a href="#ctSpecials">专题企划</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>社区与参与</h4>
+        <ul>
+          <li><a href="#ctAuthors">创作者矩阵</a></li>
+          <li><a href="#ctRank">数据榜单</a></li>
+          <li><a href="#ctComments">用户评价</a></li>
+          <li><a href="#ctSubmitTop">作品投稿</a></li>
+          <li><a href="#ctHelp">帮助中心</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>关于踩踏</h4>
+        <ul>
+          <li><a href="#ctHelp">企业动态</a></li>
+          <li><a href="#ctHelp">合作与共创</a></li>
+          <li><a href="#ctHelp">版权说明</a></li>
+          <li><a href="#ctHelp">反馈与举报</a></li>
+          <li><a href="#ctTop">返回首页</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ct-footer-bottom">
+      <span>© 2026 踩踏 CAITA 官方网站 · 版权所有 · 持续运营中</span>
+      <div class="ct-footer-badges">
+        <span>原创内容</span>
+        <span>高清正版</span>
+        <span>用户至上</span>
+        <span>备案号 京ICP备2026001188号-2</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="ct-totop" id="ctToTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<!-- 通用弹层 -->
+<div class="ct-modal-mask" id="ctModalMask">
+  <div class="ct-modal-wrap">
+    <button class="ct-modal-close" id="ctModalClose" aria-label="关闭">×</button>
+    <div class="ct-modal" id="ctModalBody"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="ct-toast" id="ctToast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('ctToast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-on'); }, 2400);
+  }
+
+  /* ---------- 移动端导航 ---------- */
+  var navToggle = document.getElementById('ctNavToggle');
+  var nav = document.getElementById('ctNav');
+  if(navToggle && nav){
+    navToggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* ---------- 公告条收起 ---------- */
+  var announce = document.getElementById('ctAnnounce');
+  var announceClose = document.getElementById('ctAnnounceClose');
+  if(announceClose){
+    announceClose.addEventListener('click', function(){
+      announce.style.display = 'none';
+      document.documentElement.style.setProperty('--ct-head-h','64px');
+    });
+  }
+
+  /* ---------- 搜索提示 ---------- */
+  var searchInput = document.getElementById('ctSearchInput');
+  var searchBtn = document.getElementById('ctSearchBtn');
+  var searchMsg = document.getElementById('ctSearchMsg');
+  var suggestMap = {
+    '夜': '夜骑三环 42 公里 · 4K 高清',
+    '雨': '雨天路书：湿滑路面的七个刹车判断',
+    '修': '修车铺的第十年：老周和他修不完的旧车',
+    '补': '旧厂房改造的骑行补给站',
+    '面': '凌晨四点的面包房，与一场通勤影像实验',
+    '桥': '沿江四十二公里：高架桥下的黄昏长镜头',
+    '江': '沿江四十二公里 · 江岸片场',
+    '杭': '杭州城市影像索引 · 新增 12 部',
+    '武': '武汉城市影像索引 · 新增 9 部',
+    '作': '创作者激励计划第三期 · 报名中'
+  };
+  function doSearch(){
+    var q = (searchInput.value || '').trim();
+    if(!q){
+      searchMsg.innerHTML = '输入关键词试试，例如「夜骑」「雨天」「补给站」。';
+      searchMsg.classList.add('is-on');
+      return;
+    }
+    var hit = null;
+    Object.keys(suggestMap).forEach(function(k){
+      if(!hit && q.indexOf(k) > -1) hit = suggestMap[k];
+    });
+    if(hit){
+      searchMsg.innerHTML = '找到相关精品内容：<b>' + hit + '</b>';
+    }else{
+      searchMsg.innerHTML = '暂未匹配到与「' + q.replace(/[<>&]/g,'') + '」直接相关的影片，已为你转至影像流总览。';
+    }
+    searchMsg.classList.add('is-on');
+  }
+  if(searchBtn){
+    searchBtn.addEventListener('click', doSearch);
+  }
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ doSearch(); }
+    });
+    searchInput.addEventListener('input', function(){
+      if(!searchInput.value){ searchMsg.classList.remove('is-on'); }
+    });
+    document.addEventListener('click', function(e){
+      if(searchMsg && !searchMsg.contains(e.target) && e.target !== searchInput && e.target !== searchBtn){
+        if(!searchBtn.contains(e.target)) searchMsg.classList.remove('is-on');
+      }
+    });
+  }
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-like]');
+    if(likeBtn){
+      var numEl = likeBtn.querySelector('[data-like-num]');
+      var n = parseInt((numEl.textContent || '0').replace(/[^\d]/g,''), 10) || 0;
+      if(likeBtn.classList.contains('is-liked')){
+        likeBtn.classList.remove('is-liked');
+        n = Math.max(0, n - 1);
+        toast('已取消点赞');
+      }else{
+        likeBtn.classList.add('is-liked');
+        n = n + 1;
+        toast('点赞成功，感谢支持原创');
+      }
+      if(numEl) numEl.textContent = n.toLocaleString('en-US');
+      return;
+    }
+    var saveBtn = e.target.closest('[data-save]');
+    if(saveBtn){
+      var on = saveBtn.classList.toggle('is-saved');
+      var label = saveBtn.querySelector('span:last-child');
+      if(label) label.textContent = on ? '已收藏' : '收藏';
+      toast(on ? '已加入收藏夹' : '已从收藏夹移除');
+      return;
+    }
+  });
+
+  /* ---------- 复制链接 ---------- */
+  function copyText(text, okMsg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        toast(okMsg || '链接已复制');
+      }).catch(function(){
+        fallbackCopy(text, okMsg);
+      });
+    }else{
+      fallbackCopy(text, okMsg);
+    }
+  }
+  function fallbackCopy(text, okMsg){
+    try{
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      toast(okMsg || '链接已复制');
+    }catch(err){
+      toast('复制失败，请手动分享');
+    }
+  }
+  document.addEventListener('click', function(e){
+    var copyBtn = e.target.closest('[data-copy]');
+    if(copyBtn){
+      var titleEl = copyBtn.closest('article');
+      var name = titleEl ? (titleEl.querySelector('h3,h4') || {}).textContent : '踩踏官方网站';
+      copyText('【踩踏】' + (name || '踩踏官方网站'), '作品链接已复制');
+    }
+  });
+
+  /* ---------- 弹层通用 ---------- */
+  var mask = document.getElementById('ctModalMask');
+  var modalBody = document.getElementById('ctModalBody');
+  var modalClose = document.getElementById('ctModalClose');
+
+  function openModal(html){
+    modalBody.innerHTML = html;
+    mask.classList.add('is-on');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('is-on');
+    document.body.style.overflow = '';
+  }
+  if(modalClose){ modalClose.addEventListener('click', closeModal); }
+  if(mask){
+    mask.addEventListener('click', function(e){
+      if(e.target === mask){ closeModal(); }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && mask.classList.contains('is-on')){ closeModal(); }
+    });
+  }
+
+  /* ---------- 投稿弹窗 ---------- */
+  function submitModal(){
+    openModal(
+      '<h3>投稿到踩踏官方网站</h3>' +
+      '<p class="ct-modal-sub">填写基本信息，编辑会在 3 至 5 个工作日内给出初审意见。</p>' +
+      '<label for="ctSubName">作品标题</label>' +
+      '<input id="ctSubName" type="text" placeholder="例如：雨天路书·外环东段实测">' +
+      '<label for="ctSubAuthor">作者昵称</label>' +
+      '<input id="ctSubAuthor" type="text" placeholder="你在社区的显示名称">' +
+      '<label for="ctSubType">内容方向</label>' +
+      '<select id="ctSubType">' +
+        '<option>城市探索</option><option>实用技巧</option><option>人物访谈</option>' +
+        '<option>日常记录</option><option>品牌故事</option><option>创作幕后</option>' +
+      '</select>' +
+      '<label for="ctSubDesc">作品说明</label>' +
+      '<textarea id="ctSubDesc" placeholder="简要说明拍摄地点、时长、素材与授权情况"></textarea>' +
+      '<div class="ct-modal-foot">' +
+        '<button class="ct-btn ct-btn-ghost" data-modal-cancel>取消</button>' +
+        '<button class="ct-btn ct-btn-primary" data-modal-submit>提交稿件</button>' +
+      '</div>'
+    );
+  }
+  var submitBtns = ['ctSubmitTop','ctSubmitCta'];
+  submitBtns.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.addEventListener('click', submitModal); }
+  });
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-modal-cancel]')){ closeModal(); }
+    if(e.target.closest('[data-modal-submit]')){
+      var nameInput = document.getElementById('ctSubName');
+      var authorInput = document.getElementById('ctSubAuthor');
+      if(nameInput && !nameInput.value.trim()){
+        toast('请先填写作品标题');
+        nameInput.focus();
+        return;
+      }
+      if(authorInput && !authorInput.value.trim()){
+        toast('请先填写作者昵称');
+        authorInput.focus();
+        return;
+      }
+      closeModal();
+      toast('稿件已提交，请留意官方发布通知');
+    }
+  });
+
+  /* ---------- 评论 / 反馈 / 作者信息 ---------- */
+  document.addEventListener('click', function(e){
+    var commentBtn = e.target.closest('[data-comment]');
+    if(commentBtn){
+      openModal(
+        '<h3>社区短评摘录</h3>' +
+        '<p class="ct-modal-sub">来自《沿江四十二公里》评论区的三条真实留言。</p>' +
+        '<div class="ct-comments" style="grid-template-columns:1fr;">' +
+          '<article class="ct-comment"><div class="ct-comment-top"><span class="ct-avatar" style="background:#e4572e">风</span><div class="ct-comment-who"><b>桥下的风</b><small>上海</small></div><span class="ct-stars">★★★★★</span></div><p>十八分钟没有快进，结尾那段<em>链条声突然安静下来</em>，我起了一身鸡皮疙瘩。</p></article>' +
+          '<article class="ct-comment"><div class="ct-comment-top"><span class="ct-avatar" style="background:#2c3d63">夜</span><div class="ct-comment-who"><b>夜班归人</b><small>深圳</small></div><span class="ct-stars">★★★★☆</span></div><p>想知道拍摄用的什么机器，画面在高架桥阴影里也没糊，<em>宽容度很好</em>。</p></article>' +
+          '<article class="ct-comment"><div class="ct-comment-top"><span class="ct-avatar" style="background:#2f8f6b">林</span><div class="ct-comment-who"><b>林间慢骑</b><small>杭州</small></div><span class="ct-stars">★★★★★</span></div><p>看完已经把这周六的路线改了，就照着片子里那段江边骑。</p></article>' +
+        '</div>' +
+        '<div class="ct-modal-foot"><button class="ct-btn ct-btn-primary" data-modal-cancel>知道了</button></div>'
+      );
+      return;
+    }
+
+    var reportBtn = e.target.closest('[data-report]');
+    if(reportBtn){
+      openModal(
+        '<h3>反馈与举报</h3>' +
+        '<p class="ct-modal-sub">我们会认真核对每一条反馈，核实后 48 小时内处理。</p>' +
+        '<label for="ctRepType">问题类型</label>' +
+        '<select id="ctRepType"><option>版权问题</option><option>画面异常</option><option>信息错误</option><option>其他</option></select>' +
+        '<label for="ctRepDesc">补充说明</label>' +
+        '<textarea id="ctRepDesc" placeholder="请描述具体问题与时间点"></textarea>' +
+        '<div class="ct-modal-foot">' +
+          '<button class="ct-btn ct-btn-ghost" data-modal-cancel>取消</button>' +
+          '<button class="ct-btn ct-btn-primary" data-report-submit>提交反馈</button>' +
+        '</div>'
+      );
+      return;
+    }
+    if(e.target.closest('[data-report-submit]')){
+      var rd = document.getElementById('ctRepDesc');
+      if(rd && !rd.value.trim()){
+        toast('请补充问题说明');
+        rd.focus();
+        return;
+      }
+      closeModal();
+      toast('反馈已提交，感谢你帮我们守护内容品质');
+      return;
+    }
+
+    var authorBtn = e.target.closest('[data-author]');
+    var authorDetail = e.target.closest('[data-author-detail]');
+    if(authorBtn || authorDetail){
+      var who = authorDetail ? authorDetail.getAttribute('data-author-detail') : '踩踏创作者';
+      var card = (authorBtn ? authorBtn.closest('article') : authorDetail.closest('.ct-author-card'));
+      var bioEl = card ? card.querySelector('.ct-author-bio') : null;
+      var bio = bioEl ? bioEl.textContent : '这位创作者长期在踩踏官方网站发布原创影像，内容覆盖城市探索、实用技巧与人物访谈，所有作品均为高清正版。';
+      openModal(
+        '<h3>' + who + '</h3>' +
+        '<p class="ct-modal-sub">踩踏认证创作者 · 长期供稿中</p>' +
+        '<p style="font-size:14.5px;color:#4a5768;line-height:1.85;">' + bio + '</p>' +
+        '<p style="font-size:13.5px;color:#4a5768;margin-top:12px;">擅长方向：城市纪录、路书实测、在地访谈。近期更新稳定，欢迎在影像流中查看其最新作品。</p>' +
+        '<div class="ct-modal-foot">' +
+          '<button class="ct-btn ct-btn-ghost" data-modal-cancel>关闭</button>' +
+          '<button class="ct-btn ct-btn-primary" data-author-follow>关注</button>' +
+        '</div>'
+      );
+      return;
+    }
+    if(e.target.closest('[data-author-follow]')){
+      closeModal();
+      toast('已关注该创作者，更新时将第一时间提醒');
+    }
+
+    if(e.target.id === 'ctAuthorMore'){
+      openModal(
+        '<h3>踩踏创作者矩阵</h3>' +
+        '<p class="ct-modal-sub">除首页展示的四位作者外，社区还有 260 余位持续供稿的认证创作者。</p>' +
+        '<p style="font-size:14.5px;color:#4a5768;line-height:1.85;">新入驻创作者可先参与「路书实验室」的小实验投稿，通过后再申请认证。认证作者享有高清转码优先、专题推荐位与年度合辑入选资格。</p>' +
+        '<div class="ct-modal-foot">' +
+          '<button class="ct-btn ct-btn-ghost" data-modal-cancel>关闭</button>' +
+          '<button class="ct-btn ct-btn-primary" data-modal-submit>我要投稿</button>' +
+        '</div>'
+      );
+      return;
+    }
+
+    var addComment = e.target.closest('#ctAddComment');
+    if(addComment){
+      openModal(
+        '<h3>写下你的评价</h3>' +
+        '<p class="ct-modal-sub">真实的体验比客套话更有价值，我们会原样展示。</p>' +
+        '<label for="ctCmtName">昵称</label>' +
+        '<input id="ctCmtName" type="text" placeholder="显示名称">' +
+        '<label for="ctCmtText">评价内容</label>' +
+        '<textarea id="ctCmtText" placeholder="例如：希望搜索能按路线筛选"></textarea>' +
+        '<div class="ct-modal-foot">' +
+          '<button class="ct-btn ct-btn-ghost" data-modal-cancel>取消</button>' +
+          '<button class="ct-btn ct-btn-primary" data-comment-submit>发布</button>' +
+        '</div>'
+      );
+      return;
+    }
+    if(e.target.closest('[data-comment-submit]')){
+      var ct = document.getElementById('ctCmtText');
+      if(ct && !ct.value.trim()){
+        toast('评价内容不能为空');
+        ct.focus();
+        return;
+      }
+      closeModal();
+      toast('评价已发布，感谢你的真实反馈');
+      return;
+    }
+  });
+
+  /* ---------- 分享 ---------- */
+  function shareModal(){
+    openModal(
+      '<h3>分享踩踏官方网站</h3>' +
+      '<p class="ct-modal-sub">选择一种方式，或直接复制链接发送给同好。</p>' +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">' +
+        '<button class="ct-btn ct-btn-ghost" data-share-way="微信">微信</button>' +
+        '<button class="ct-btn ct-btn-ghost" data-share-way="微博">微博</button>' +
+        '<button class="ct-btn ct-btn-ghost" data-share-way="QQ">QQ</button>' +
+      '</div>' +
+      '<div class="ct-modal-foot">' +
+        '<button class="ct-btn ct-btn-ghost" data-modal-cancel>关闭</button>' +
+        '<button class="ct-btn ct-btn-primary" data-copy>复制链接</button>' +
+      '</div>'
+    );
+  }
+  ['ctShareHero','ctShareCta'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.addEventListener('click', shareModal); }
+  });
+  document.addEventListener('click', function(e){
+    var way = e.target.closest('[data-share-way]');
+    if(way){
+      var w = way.getAttribute('data-share-way');
+      closeModal();
+      toast('已生成' + w + '分享卡片，可粘贴发送');
+    }
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  var statNums = document.querySelectorAll('[data-count]');
+  var counted = false;
+  function runCount(){
+    if(counted) return;
+    counted = true;
+    statNums.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var suffix = el.querySelector('span');
+      var suffixHTML = suffix ? suffix.outerHTML : '';
+      var start = null;
+      var dur = 1100;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = Math.round(target * eased);
+        el.innerHTML = val.toLocaleString('en-US') + suffixHTML;
+        if(p < 1){ requestAnimationFrame(step); }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window && statNums.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ runCount(); io.disconnect(); }
+      });
+    }, {threshold:.4});
+    var statsBox = document.querySelector('.ct-hero-stats');
+    if(statsBox) io.observe(statsBox);
+  }else{
+    runCount();
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var toTop = document.getElementById('ctToTop');
+  function onScroll(){
+    if(!toTop) return;
+    if(window.scrollY > 560){ toTop.classList.add('is-on'); }
+    else{ toTop.classList.remove('is-on'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  if(toTop){
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+  onScroll();
+
+})();
+</script>
+</body>
+                                                     </html>
